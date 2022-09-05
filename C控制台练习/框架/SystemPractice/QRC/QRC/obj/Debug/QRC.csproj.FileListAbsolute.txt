@@ -1,0 +1,8 @@
+E:\控制台练习\SystemPractice\QRC\QRC\bin\Debug\QRC.exe.config
+E:\控制台练习\SystemPractice\QRC\QRC\obj\Debug\QRC.csprojResolveAssemblyReference.cache
+E:\控制台练习\SystemPractice\QRC\QRC\bin\Debug\QRC.exe
+E:\控制台练习\SystemPractice\QRC\QRC\bin\Debug\QRC.pdb
+E:\控制台练习\SystemPractice\QRC\QRC\obj\Debug\QRC.exe
+E:\控制台练习\SystemPractice\QRC\QRC\obj\Debug\QRC.pdb
+E:\控制台练习\SystemPractice\QRC\QRC\bin\Debug\ServiceStack.Redis.dll
+E:\控制台练习\SystemPractice\QRC\QRC\bin\Debug\ServiceStack.Redis.xml

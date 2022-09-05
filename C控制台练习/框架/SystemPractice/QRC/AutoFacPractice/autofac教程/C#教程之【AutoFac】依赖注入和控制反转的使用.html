@@ -1,0 +1,1065 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)https://www.xin3721.com/Python/python13875.html -->
+<html xmlns="https://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>C#教程之【AutoFac】依赖注入和控制反转的使用</title>
+<meta name="keywords" content="教程,之,【,AutoFac,】,依赖,注入,和,控制,反转,">
+<meta name="description" content="在开始之前首先解释一下我认为的依赖注入和控制反转的意思。（新手理解，哪里说得不正确还请指正和见谅） 控制反转： 我们向IOC容器发出获取一个对象实例的一个请求，IOC容器便">
+<link href="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/article.css" rel="stylesheet" media="screen" type="text/css">
+
+
+<script src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/push.js.下载"></script><script src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/hm.js.下载"></script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4eca4f2ec7e0b1dbd56f720705f81175";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</head>
+<body>
+
+
+
+
+
+
+<!--main开始-->
+<div id="main">
+
+﻿
+<div id="top"> 
+<div id="search">
+
+<form method="get" action="http://www.baidu.com/baidu" style="margin-top:5px;" target="_blank">
+ 
+  <input type="text" name="word" id="keywords" size="38" maxlength="50">
+<input name="tn" type="hidden" value="bds">
+<input name="cl" type="hidden" value="3">
+<input name="ct" type="hidden" value="2097152">
+<input name="si" type="hidden" value="www.xin3721.com"><input type="submit" id="submit" value="站内搜索"><input type="hidden" name="site" value="www.xin3721.com"><input type="hidden" name="ch" value="website"></form><!--End of Search QQ -->
+</div>
+
+
+</div>
+
+<div id="menu">
+<div id="menuleft"></div>
+<div id="menucenter">
+<a href="https://www.xin3721.com/">首 页</a>
+<a href="https://www.xin3721.com/class1/" target="_blank">平面设计</a>
+<a href="https://www.xin3721.com/class2/" target="_blank">编程开发</a>
+
+<a href="https://www.xin3721.com/class4/" target="_blank">网页设计</a>
+<a href="https://www.xin3721.com/class5/" target="_blank">Flash</a>
+<a href="https://www.xin3721.com/class6/" target="_blank">办公软件</a>
+<a href="https://www.xin3721.com/class7/" target="_blank">数据库</a>
+<a href="https://www.xin3721.com/class8/" target="_blank">硬件学园</a>
+<a href="https://www.xin3721.com/class9/" target="_blank">等级考试</a>
+<a href="https://www.xin3721.com/class10/" target="_blank">多媒体</a>
+<a href="https://www.xin3721.com/class11/" target="_blank">网络工程师</a>
+
+
+
+</div>
+<div id="menuright"></div>
+</div>
+
+
+
+<div id="menu2"></div>
+
+<!-- /header -->
+<div class="ad1">
+
+ <span>
+<a href="https://www.xin3721.com/eschool/VBNetxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/VB.net-2010.jpg" alt="VB.net 2010 视频教程"></a>
+
+</span>
+
+ <span>
+<a href="https://www.xin3721.com/eschool/SQLxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/SQL-Server-2008.jpg" alt="VB.net 2010 视频教程"></a>
+
+</span>
+
+
+ <span>
+<a href="https://www.xin3721.com/eschool/pythonxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/python.jpg" alt="python基础视频教程"></a>
+</span>
+
+
+</div>
+<div class="ad1">
+<span><a href="https://www.xin3721.com/eschool/sql2008xin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/SQl22.jpg" alt="SQL Server 2008 视频教程"></a></span>
+
+
+<span><a href="https://www.xin3721.com/eschool/CSharpxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/csharp.jpg" alt="c#入门经典教程"></a></span>
+<span><a href="https://www.xin3721.com/eschool/VisualBasicenet/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/VB6.jpg" alt="Visual Basic从门到精通视频教程"></a></span>
+
+
+</div>
+
+<div class="middle">
+ <!--left开始 -->
+
+<div id="left">
+
+ <!--Position开始 -->
+ <div id="Position">
+当前位置:<h5> <a href="https://www.xin3721.com/">首页</a> &gt; <a href="https://www.xin3721.com/ArticlePrograme/">编程开发</a> &gt; <a href="https://www.xin3721.com/Python/">Python基础教程</a> &gt; </h5>
+ </div>
+  <!--Position结束 -->
+<ul>
+<li class="ArticleTitle3">   <h2>C#教程之【AutoFac】依赖注入和控制反转的使用</h2></li>
+
+<li class="Author">
+
+<!--<span>来源：未知</span>-->
+ </li>
+<li class="share">
+
+</li>
+
+
+
+
+</ul>
+
+ <div class="listContent">
+
+
+
+ <div class="blogpost-body" deep="8" id="cnblogs_post_body" style="margin: 0px 0px 20px; padding: 0px; word-break: break-word; color: rgb(51, 51, 51); font-family: verdana, Arial, Helvetica, sans-serif; font-size: 14px;">
+	<p style="margin: 10px auto; padding: 0px;">
+		在开始之前首先解释一下我认为的依赖注入和控制反转的意思。（新手理解，哪里说得不正确还请指正和见谅）</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<strong style="margin: 0px; padding: 0px;">控制反转：</strong>我们向IOC容器发出获取一个对象实例的一个请求，IOC容器便把这个对象实例“注入”到我们的手中，在这个时候我们不是一个创建者，我们是以一个请求者的身份去请求容器给我们这个对象实例。我们所有的对象依赖于容器提供给你的资源，控制权落到了容器身上。在这里的身份转化或许就是控制反转的核心吧。　</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<strong style="margin: 0px; padding: 0px;">依赖注入：</strong>我们向容器发出请求以后，获得这个对象实例的过程就叫依赖注入。也就是我们在使用对象前我们都需要先注入也就是这个意思吧。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;今天学习了下AutoFac依赖注入这个插件，然后还有以前用过的Unity这个插件简单做个笔记整理。首先我分两个部分记录，第一部分一点有点的记录今天学习的AutoFac这个插件，最后一部分直接补上以前使用Unity插件的代码封装不做详细解释。因为本篇幅写完有点多就单独写一下UnIty。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		Unity地址：【Unity】微软的一款依赖注入组件</p>
+	<div style="margin: 0px; padding: 0px; text-align: right;">
+		回到顶部</div>
+	<h2 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: burlywood; font-size: 21px; line-height: 1.5;">
+		AutoFac入门</h2>
+	<p style="margin: 10px auto; padding: 0px;">
+		还是放上官网给出的整合流程吧;</p>
+	<ul class="simple" style="margin: 0px 0px 0px 30px; padding-right: 0px; padding-left: 0px; list-style: none;">
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			按照<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">&nbsp;<em style="margin: 0px; padding: 0px;">控制反转</em><span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">&nbsp;(IoC) 的思想构建你的应用.</span></span></li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			添加Autofac引用.</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			在应用的 startup 处...</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			创建<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">&nbsp;<cite style="margin: 0px; padding: 0px;">ContainerBuilder</cite>.</span></li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			注册组件.</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			创建容器,将其保存以备后续使用.</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			应用执行阶段...</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			从容器中创建一个生命周期.</li>
+		<li style="margin: 0px; padding: 0px; list-style: disc;">
+			在此生命周期作用域内解析组件实例.</li>
+	</ul>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		创建简单的例子</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		通过一个控制台简单清晰的介绍了如何使用AutoFac这个插件。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		创建项目</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp; &nbsp; 创建一个控制台程序叫AutoFacDome。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp; &nbsp; 这里就不做过多解释了，大家都会创建哈哈。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		引用<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">Autofac</span></h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">使用我vs强大的nuget来进行添加引用：</span></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">直接在搜索栏输入Autofac直接就可以查找出来：</span></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430146009-0.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;Nuget命令行：</p>
+	<div class="cnblogs_Highlighter sh-gutter" style="margin: 0px; padding: 0px;">
+		<div style="margin: 0px; padding: 0px;">
+			<div class="syntaxhighlighter  csharp" id="highlighter_145091" style="padding: 0px; width: 1000px; margin: 1em 0px !important; position: relative !important; overflow: auto !important; font-size: 1em !important;">
+				<table border="0" cellpadding="0" cellspacing="0" style="border-style: solid; border-color: silver; width: 1000px; border-collapse: collapse; word-break: break-word; margin: 0px !important; padding: 0px !important; border-radius: 0px !important; background: none !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; box-sizing: content-box !important; font-family: Consolas, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier, monospace !important; font-size: 12px !important; min-height: auto !important;">
+					<tbody style="margin: 0px !important; padding: 0px !important; border-radius: 0px !important; background: none !important; border: 0px !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important;">
+						<tr style="margin: 0px !important; padding: 0px !important; border-radius: 0px !important; background: none !important; border: 0px !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important;">
+							<td class="gutter" style="padding: 8px 14px; border-style: solid; border-color: silver; border-collapse: collapse; margin: 0px !important; border-radius: 0px !important; background: none !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: 35px !important; box-sizing: content-box !important; min-height: auto !important; color: rgb(175, 175, 175) !important;">
+								<div class="line number1 index0 alt2" style="margin: 0px !important; padding: 0px 0.5em !important; border-radius: 0px !important; background: none rgb(244, 244, 244) !important; border-width: 0px 2px 0px 0px !important; border-top-style: initial !important; border-right-style: solid !important; border-bottom-style: initial !important; border-left-style: initial !important; border-top-color: initial !important; border-right-color: rgb(108, 226, 108) !important; border-bottom-color: initial !important; border-left-color: initial !important; border-image: initial !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.8em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; text-align: right !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important; white-space: nowrap !important;">
+									1</div>
+							</td>
+							<td class="code" style="padding: 8px 14px; border-style: solid; border-color: silver; border-collapse: collapse; margin: 0px !important; border-radius: 0px !important; background: none !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important;">
+								<div class="container" style="margin: 0px !important; padding: 0px !important; border-radius: 0px !important; background: none !important; border: 0px !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.1em !important; outline: 0px !important; overflow: visible !important; position: relative !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important;">
+									<div class="line number1 index0 alt2" style="margin: 0px !important; padding: 0px 1em !important; border-radius: 0px !important; background: none rgb(244, 244, 244) !important; border: 0px !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.8em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; min-height: auto !important; white-space: nowrap !important;">
+										<code class="csharp plain" style="margin: 0px !important; padding: 0px !important; border-radius: 0px !important; background: none !important; border: 0px !important; bottom: auto !important; float: none !important; height: auto !important; left: auto !important; line-height: 1.8em !important; outline: 0px !important; overflow: visible !important; position: static !important; right: auto !important; top: auto !important; vertical-align: baseline !important; width: auto !important; box-sizing: content-box !important; font-family: Consolas, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier, monospace !important; min-height: auto !important;">Install-Package Autofac -Version 4.8.1</code></div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		&nbsp;创建一个依赖关系类：</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		首先我们定义一个服务接口=&gt;IService</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 服务接口
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 描述：为了方法的继承和扩展更好的演示下面的例子
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">interface</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">定义一个输出方法</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord();
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后我们在创建一个服务类去实现接口(IService)=&gt;Service</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 服务类具体实现
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">class</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service : IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">输出方法的实现</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord()
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service打印的Hello word</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		好了现在我们有了一个服务接口和一个服务类 ，并且类下面实现了输出会打印：我是service打印的Hello word。常规我们想调用这个方法我们都是在mian函数中示例化该类进行调用，类似于这样</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            IService service = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service();
+            service.PrintWord();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">或者</span>
+            Service service2 = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service();
+            service2.PrintWord();</span></pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		但是今天我们说的不是这些我们说的另外的方式。那我们看看 autofac是怎么调用的。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		注册容器</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		其实万变不离其宗，不管是autofac，unity，spring.net等，其实都是这么一个套路就是先注册容器然后才能从容器取出，其实这个也非常好理解容器本身是没有东西的，你想用东西就要提前放进去，只有容器有了你请求才会给你。不同的插件只不过是各自的封装方法或者形式存在着差异。autofac的注册方式：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">           <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 创建容器</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> builder = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ContainerBuilder();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">注册对象</span>
+            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            Container </span>= builder.Build();</pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		这个时候我们就相当于把service类放入了容器，这样在后面你才可以取出来使用。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		使用容器</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		这里我写了两个使用的方法根据不同情况使用把：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法一</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">using</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> ioc =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> Container.BeginLifetimeScope())
+            {
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> service = ioc.Resolve&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+                service.PrintWord();
+            }
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法二
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">var service = Container.Resolve&lt;IService&gt;();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">service.PrintWord();</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		运行</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		我们可以任意注释一个方法来检测一下结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014L16-7.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		这样我们就完成了autofac的简单运用。</p>
+	<div style="margin: 0px; padding: 0px; text-align: right;">
+		回到顶部</div>
+	<h2 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: burlywood; font-size: 21px; line-height: 1.5;">
+		AutoFac新手村</h2>
+	<p style="margin: 10px auto; padding: 0px;">
+		通过上面的例子我们已经知道autofac的基本运用。基本运用还不行我们还要知道一些知识。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		多构造函数</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		第一种：就是单纯的有多个构造</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		如果我们同一个类存在多个构造函数会给我们一个什么结果哪这个在有时候是非常重要的。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		所以我们修改我们的service类：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 服务类具体实现
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">class</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service : IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">默认构造</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service() {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service的默认构造</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">一个参数的构造</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> Service(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> a)
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service的一个参数构造</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">两个参数的构造</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> Service(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span> a,<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> b)
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service的两个参数构造</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">输出方法的实现</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord()
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service打印的Hello word</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		其他都不变运行代码：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/14301454V-10.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		这里就是执行了默认构造，所有在一个类有多个构造情况下默认的形式是返回给我们默认构造函数的类实例。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		第二种：多构造参数类型并且参数类型也注册容器</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		这个什么意思哪就是说有两个类，其中一个类的构造函数参数是另一个类。并且参数类型也进行注册容器</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		我们增加一个ServiceTwo类：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">class</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ServiceTwo :IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">输出方法的实现</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord()
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是serviceTwo打印的Hello word</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		修改service类中的一个参数构造为：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">一个参数的构造</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service(ServiceTwo two)
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service的一个参数构造</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }</span></pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		main函数增加注册：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">注册对象</span>
+            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            builder.RegisterType</span>&lt;ServiceTwo&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            Container </span>= builder.Build();</pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后运行：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430144V4-13.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		这里就和上面的结果不一样了，所有在使用时需要注意，autofac官方解释为：当使用基于反射的组件时,<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">&nbsp;<strong style="margin: 0px; padding: 0px;">Autofac 自动为你的类从容器中寻找匹配拥有最多参数的构造方法。</strong></span></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">说白了就是如果使用注册类并且注册类多构造函数，并且其构造参数为其他注册类时候，查找的构造函数包含注册类最多的构造函数返回。</span></p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		&nbsp;指定构造函数</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		由容器掌握我们的构造函数总是不好的，所有我们要自己指定想创建谁创建谁=&gt;<code class="docutils literal notranslate" style="margin: 0px; padding: 0px;"><span class="pre" style="margin: 0px; padding: 0px; line-height: 1.8;">UsingConstructor（参数类型）可以多个</span></code></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="pre" style="margin: 0px; padding: 0px; line-height: 1.8;">在这里需要注意我们既然指定了构造函数就要为构造函数传参不然会抱错，参数可以是注册时候传也可以解析时候传，我写了一个解析时候传的：</span></p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 创建容器</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> builder = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ContainerBuilder();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">注册对象</span>
+            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;().UsingConstructor(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">typeof</span>(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span>), <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">typeof</span>(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">));
+           </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> builder.RegisterType&lt;ServiceTwo&gt;();</span>
+            Container =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> builder.Build();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法一</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">using</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> ioc=<span style="margin: 0px; padding: 0px; line-height: 1.8;"> Container.BeginLifetimeScope())
+            {
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> service = ioc.Resolve&lt;IService&gt;(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span> NamedParameter(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">a</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span>, <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 128);">1</span>), <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span> NamedParameter(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">b</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span>, <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 128);">1</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">));
+                service.PrintWord();
+            }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014O54-16.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		&nbsp;类的覆盖</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		如果我两个类或者多个类同时实现一个接口并且注册的时候都与接口做了关联。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		那么会存在覆盖现象。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		下面我们把main函数改造让serviceTwo也注册与IService关联</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 创建容器</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> builder = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ContainerBuilder();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">注册对象</span>
+            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            builder.RegisterType</span>&lt;ServiceTwo&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            Container </span>=<span style="margin: 0px; padding: 0px; line-height: 1.8;"> builder.Build();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法一</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">using</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> ioc =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> Container.BeginLifetimeScope())
+            {
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> service = ioc.Resolve&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+                service.PrintWord();
+            }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/14301415a-19.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<strong style="margin: 0px; padding: 0px;">这个时候我们得到的是serviceTwo类的示例。如果改变Service和ServiceTwo的位置就会返回service实例。</strong></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		当然我没也可以阻止这个行为使用<span class="n" style="margin: 0px; padding: 0px; line-height: 1.8;">PreserveExistingDefaults（）方法：</span></p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">注册对象</span>
+            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            builder.RegisterType</span>&lt;ServiceTwo&gt;().As&lt;IService&gt;().PreserveExistingDefaults();</pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		再次运行就不会覆盖：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430141434-20.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后我们如何遍历所有的注册服务哪，使用循环：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">  <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">using</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> ioc =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> Container.BeginLifetimeScope())
+            {
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">var service = ioc.Resolve&lt;IService&gt;();
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">service.PrintWord();</span>
+                <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> serviceList = ioc.Resolve&lt;IEnumerable&lt;IService&gt;&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">foreach</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> item <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">in</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> serviceList) {
+                    item.PrintWord();
+                }
+               
+            }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430143357-23.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		&nbsp;属性注入</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		WithProperty：绑定一个属性和他的值</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		我们给ServiceTwo类添加name属性并扩展一个打印方法：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">string</span> name { <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">get</span>; <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">set</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">; }
+
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintName()
+        {
+            Console.WriteLine($</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">name属性：{name}</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后main函数改为</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            builder.RegisterType&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            builder.RegisterType</span>&lt;ServiceTwo&gt;().WithProperty(<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">name</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span>, <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">张三</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+            Container </span>=<span style="margin: 0px; padding: 0px; line-height: 1.8;"> builder.Build();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法一</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">using</span> (<span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> ioc =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> Container.BeginLifetimeScope())
+            {
+                </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> service = ioc.Resolve&lt;ServiceTwo&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+                service.PrintName();
+            }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430144K1-28.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		方法注入</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		OnActivating：方法注入</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		我们在ServiceTwo类添加设置名称方法</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">  <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> setName()
+        {
+            name </span>= <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">李四</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">;
+        }</span></pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后main函数改为：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">builder.RegisterType&lt;ServiceTwo&gt;().OnActivating(e=&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;"> {
+                e.Instance.setName();
+            });</span></pre>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行结果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430144W9-29.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;</p>
+	<div style="margin: 0px; padding: 0px; text-align: right;">
+		回到顶部</div>
+	<h2 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: burlywood; font-size: 21px; line-height: 1.5;">
+		AutoFac集成-MVC</h2>
+	<p style="margin: 10px auto; padding: 0px;">
+		首先创建mvc项目就不过多解释了。</p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		引用dll：</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		这里需要引用两个dll文件：<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">&nbsp;Autofac.Mvc5和&nbsp;Autofac。注意这里我的是mvc5所以我安装的Autofac.Mvc5&nbsp;这个要根据mvc版本做对应不然会报错。</span></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;"><img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430143913-30.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></span></p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">通过nuget安装就可以了。</span></p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">相关类</span></h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		<span class="Apple-converted-space" style="margin: 0px; padding: 0px; line-height: 1.8;">还是我们的Service类和IService类来做示例演示：</span></p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 服务接口
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 描述：为了方法的继承和扩展更好的演示下面的例子
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">interface</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">定义一个输出方法</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord();
+    }
+
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 服务类具体实现
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">class</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service : IService
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">默认构造</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Service()
+        {
+            Console.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">我是service的默认构造</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">输出方法的实现</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> PrintWord()
+        {
+            System.Diagnostics.Debug.WriteLine(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">调起了service中的方法</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 0, 0);">"</span><span style="margin: 0px; padding: 0px; line-height: 1.8;">);
+        }
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		配置文件</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		配置Global文件，来注入控制器。下面我只做构造函数注入和属性注入</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">protected</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">void</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> Application_Start()
+        {
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> builder = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ContainerBuilder();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 通过程序集注册所有控制器和属性注入
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">builder.RegisterControllers(typeof(MvcApplication).Assembly);</span>
+<span style="margin: 0px; padding: 0px; line-height: 1.8;">            builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
+
+
+
+            builder.RegisterType</span>&lt;Service&gt;().As&lt;IService&gt;<span style="margin: 0px; padding: 0px; line-height: 1.8;">();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 将依赖性分解器设置为AutoFac。</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> container =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> builder.Build();
+            DependencyResolver.SetResolver(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> AutofacDependencyResolver(container));
+
+
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		控制器如何使用：</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		打开home控制器：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">  <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">class</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> HomeController : Controller
+    {
+
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 构造函数注入
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;param name="serviceClient"&gt;&lt;/param&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> HomeController(IService serviceClient)
+        {
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">this</span>.Service =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> serviceClient;
+        }
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> IService Service;
+
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 属性注入
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;returns&gt;&lt;/returns&gt;</span>
+       <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> public IService Service2 { get;  set; }</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ActionResult Index()
+        {
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">使用方法一</span>
+<span style="margin: 0px; padding: 0px; line-height: 1.8;">            Service.PrintWord();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">Service2.PrintWord();</span>
+
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">return</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> View();
+        }
+
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		运行看效果：</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		&nbsp;</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		<img alt="" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/1430141034-37.png" style="margin: 0px; padding: 0px; border: 0px; vertical-align: top; max-width: 900px; height: auto;"></p>
+	
+	<h3 style="margin: 10px 0px; padding: 0px; color: rgb(0, 0, 0); background: rgba(43, 97, 52, 0.32); font-size: 16px; line-height: 1.5;">
+		&nbsp;自动注册所有控制器（补充）</h3>
+	<p style="margin: 10px auto; padding: 0px;">
+		一个一个的去注册控制是很繁琐的事情，最怕的就是后期修改代码增加了业务却没有及时添加相应的注册而出错，所以我们会全部一次注册，当然这不是必须的只是一种懒人操作。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		RegisterAssemblyTypes方法：它会去扫描所有的dll并把每个类注册为它所实现的接口。</p>
+	<p style="margin: 10px auto; padding: 0px;">
+		我们首先要创建一个接口基类什么都不做只做为注册的类型检测：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;"><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">    ///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 注册基类
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">interface</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> IDependency
+    {
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		然后所以需要注册的接口都继承此类即可：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+    <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 基类接口
+    </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+   <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">public</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">interface</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> IBaseService:IDependency
+    {
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 插入错误日志数据
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> AddErrirLog();
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 插入登录日志
+        </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;/summary&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">///</span> <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(128, 128, 128);">&lt;returns&gt;&lt;/returns&gt;</span>
+        <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">int</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> AddLoginLog();
+    }</span></pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		最后修改Global文件：</p>
+	<div class="cnblogs_code" style="margin: 5px 0px; padding: 5px; background-color: rgb(245, 245, 245); border: 1px solid rgb(204, 204, 204); overflow: auto; color: rgb(0, 0, 0); font-family: &quot;Courier New&quot; !important; font-size: 12px !important;">
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+		<pre style="margin-top: 0px; margin-bottom: 0px; padding: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: &quot;Courier New&quot; !important;">            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> builder = <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span><span style="margin: 0px; padding: 0px; line-height: 1.8;"> ContainerBuilder();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 通过程序集注册所有控制器和属性注入
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">builder.RegisterControllers(typeof(MvcApplication).Assembly);</span>
+<span style="margin: 0px; padding: 0px; line-height: 1.8;">            builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired();
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">单个控制器注入
+           </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> builder.RegisterType&lt;BaseService&gt;().As&lt;IBaseService&gt;();
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">集体自动注入</span>
+ <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(255, 0, 0);">           var baseType = typeof(IDependency);
+            var assbembly = AppDomain.CurrentDomain.GetAssemblies().ToList();
+            builder.RegisterAssemblyTypes(assbembly.ToArray())
+                .Where(t =&gt; baseType.IsAssignableFrom(t) &amp;&amp; t != baseType)
+                .AsImplementedInterfaces().InstancePerLifetimeScope();
+
+
+            </span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);">//</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 128, 0);"> 将依赖性分解器设置为AutoFac。</span>
+            <span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">var</span> container =<span style="margin: 0px; padding: 0px; line-height: 1.8;"> builder.Build();
+            DependencyResolver.SetResolver(</span><span style="margin: 0px; padding: 0px; line-height: 1.8; color: rgb(0, 0, 255);">new</span> AutofacDependencyResolver(container));</pre>
+		<div class="cnblogs_code_toolbar" style="margin: 5px 0px 0px; padding: 0px;">
+			<span class="cnblogs_code_copy" style="margin: 0px; padding: 0px 5px 0px 0px; line-height: 1.8;"><img alt="复制代码" src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/143014CY-1.gif" style="margin: 0px; padding: 0px; vertical-align: top; max-width: 900px; height: auto; border: none !important;"></span></div>
+	</div>
+	<p style="margin: 10px auto; padding: 0px;">
+		主要是红色部分</p>
+</div>
+<div id="MySignature" style="margin: 20px 0px 0px; padding: 10px 20px; background-color: rgb(174, 215, 237); border-radius: 16px; font-size: 14px; color: rgb(51, 51, 51); font-family: verdana, Arial, Helvetica, sans-serif;">
+	<div id="AllanboltSignature" style="margin: 0px; padding: 0px;">
+		<p id="PSignature" style="margin: 12px 0px 0px; padding: 10px; border: 1px solid rgb(51, 0, 102); background: url(&quot;http://pics.sc.chinaz.com/files/pic/psd1/201410/psd14407.jpg&quot;) 0px 50% no-repeat rgb(250, 250, 250); font-family: 微软雅黑; font-size: 11px;">
+			<span style="margin: 0px 0px 0px 10px; padding: 0px; line-height: 1.8; font-weight: bold;">作者：YanBigFeg&nbsp;——&nbsp;<b style="margin: 0px; padding: 0px; color: red;">颜秉锋</b></span>&nbsp;<br style="margin: 0px; padding: 0px;">
+			<br style="margin: 0px; padding: 0px;">
+			<span style="margin: 0px 0px 0px 10px; padding: 0px; line-height: 1.8; font-weight: bold;">出处：http://www.cnblogs.com/yanbigfeg</span>&nbsp;<br style="margin: 0px; padding: 0px;">
+			<br style="margin: 0px; padding: 0px;">
+			<span style="margin: 0px 0px 0px 10px; padding: 0px; line-height: 1.8; font-weight: bold; color: red;">本文版权归作者和博客园共有，欢迎转载，转载请标明出处。如果您觉得本篇博文对您有所收获，觉得小弟还算用心，请点击右下角的 [推荐]，谢谢！</span></p>
+	</div>
+</div>
+<br>
+
+      
+
+
+
+  </div>
+  <!-- /listbox -->
+  <div class="dede_pages">
+   <ul class="pagelist">
+    
+   </ul>
+  </div>
+  <!-- /pages -->
+ 
+ </div>
+ <!--left结束 -->
+ 
+  <!--right开始 -->
+ 
+ <div id="right">
+  
+
+  <!--rList1开始 -->
+ <div class="rList1">
+ 
+ 
+<span class="rListTitle1">栏目列表</span>
+  <ul>
+      
+      <li><a href="https://www.xin3721.com/Articlejava/">Java教程</a></li>
+      
+      <li><a href="https://www.xin3721.com/go/">go语言</a></li>
+      
+      <li><a href="https://www.xin3721.com/python3/">python3</a></li>
+      
+      <li><a href="https://www.xin3721.com/pythonTech/">python入门教程</a></li>
+      
+      <li><a href="https://www.xin3721.com/ArticleHB/">汇编语言</a></li>
+      
+      <li><a href="https://www.xin3721.com/ArticlePrograme/ArticlecSharp/">c#编程</a></li>
+      
+      <li><a href="https://www.xin3721.com/ArticlePrograme/robot/">机器人编程</a></li>
+      
+      <li><a href="https://www.xin3721.com/Python/">Python基础教程</a></li>
+      
+      <li><a href="https://www.xin3721.com/pythonNew/">python爬虫</a></li>
+      
+      <li><a href="https://www.xin3721.com/PythonSample/">简明python教程</a></li>
+      
+      <li><a href="https://www.xin3721.com/Articlevb/">vb</a></li>
+      
+      <li><a href="https://www.xin3721.com/Articlenet/">批处理教程</a></li>
+      
+      <li><a href="https://www.xin3721.com/ArticlecSharp/">c#编程</a></li>
+      
+      
+      
+      
+    </ul>
+    
+    
+
+    
+    
+    </div>
+
+
+ <div class="ad3">
+<a href="https://www.xin3721.com/eschool/JSJQueryxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/JavaScript.jpg" alt="JavaScript+JQuery从入门到精通视频教程 "></a>
+
+</div>
+
+ <div class="ad3">
+<a href="https://www.xin3721.com/eschool/VF2xin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/VF2.jpg" alt="VB.net 2010 视频教程"></a>
+
+</div>
+
+
+ <div class="ad3">
+<a href="https://www.xin3721.com/eschool/accessxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/Access2.jpg" alt="VB.net 2010 视频教程"></a>
+
+</div>
+ <div class="ad3">
+<a href="https://www.xin3721.com/eschool/javaxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/seo2.jpg" alt="Java视频教程"></a>
+
+</div>
+
+
+
+ <div class="ad3">
+<a href="https://www.xin3721.com/eschool/cssxin3721/" target="_blank"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/CSS&amp;DIV.jpg" alt="VB.net 2010 视频教程"></a>
+
+</div>
+
+ 
+  <!--rList1结束 -->
+ 
+         <div class="Article">
+    <span class="rListTitle1">最新更新</span>
+        <!--最新文档-->
+
+    
+                      
+              <li class="content1"><a href="https://www.xin3721.com/Python/python41560.html" target="_blank">python：如何对付无理取闹不给数据的浏览</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/pythonNew/python41559.html" target="_blank">Python采集招聘数据信息(+详情页)并实现可</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Python/python41557.html" target="_blank">好玩的代码雨，在线分享给大家~-</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Python/python41558.html" target="_blank">零配置python日志，安装即用</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/pythonTech/python41476.html" target="_blank">01 Web应用模式</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Python/python41475.html" target="_blank">python 约瑟夫生者小游戏 用list实现</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Python/python41474.html" target="_blank">DBPack 赋能 python 微服务协调分布式事务</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Python/python41473.html" target="_blank">PYTHON之SELENIUM调用XPATH实现网页操作</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/PythonSample/python20485.html" target="_blank">Python双人五子棋</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/PythonSample/python20163.html" target="_blank">matplotlib可视化系列之【排版】</a>
+     </li>
+
+
+
+    
+                  <li class="content1"><a href="https://www.xin3721.com/Articledatabase/41430.html" target="_blank">三大常用数据库事务详解之三：事务运行</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articledatabase/41429.html" target="_blank">三大常用关系型数据库事务详解之二：基</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articledatabase/41428.html" target="_blank">三大关系型数据库事务详解之一：基本概</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesql/36450.html" target="_blank">MongoDB常用命令（2）</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesql/36448.html" target="_blank">MongoDB基本介绍与安装（1）</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/sqlTech/mobil36137.html" target="_blank">SQLServer触发器调用JavaWeb接口</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesqldatabase/sql11409.html" target="_blank">SQL Server索引的原理深入解析</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesqldatabase/sql11415.html" target="_blank">SqlServer2016模糊匹配的三种方式及效率问题</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesqldatabase/sql11451.html" target="_blank">SQL中Truncate的用法</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlesqldatabase/sql4104.html" target="_blank">sqlserver 多表关联时在where语句中慎用tri</a>
+     </li>
+
+
+
+              <li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41496.html" target="_blank">Vue（1）Vue安装与使用</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41495.html" target="_blank">JavaScript 语言入门</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41447.html" target="_blank">js将一段字符串的首字母转成大写</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41446.html" target="_blank">纯原生html编写的h5视频播放器</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41445.html" target="_blank">H5仿原生app短信验证码vue2.0组件附源码地</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41444.html" target="_blank">TypeScript（4）接口</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41443.html" target="_blank">TypeScript（3）基础类型</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41442.html" target="_blank">TypeScript（2）WebStorm自动编译TypeScript配置</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41441.html" target="_blank">TypeScript（1）介绍与安装</a>
+     </li>
+<li class="content1"><a href="https://www.xin3721.com/Articlejavascript/javascript41330.html" target="_blank">ES6 - promise（1）</a>
+     </li>
+
+
+  
+    <!--//最新文档-->
+    </div>
+    
+    
+
+ 
+ </div>
+ <!--right结束 -->
+ 
+</div>
+
+
+
+
+ <!--middle结束 -->
+﻿
+
+<div id="bottom">
+
+<div id="bottomTitle">相关教程</div>
+
+
+
+<ul>
+
+<li class="list1"><a href="https://www.xin3721.com/eschool/pythonxin3721/" target="_blank">python基础教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/class2/" target="_blank">软件开发</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/PHPxin3721/" target="_blank">PHP教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/SQLxin3721/" target="_blank">sql教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/VBNetxin3721/" target="_blank">vb.net教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/SQLxin3721/" target="_blank">sql语句大全</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/ASPnetxin3721/" target="_blank">asp.net教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/dwcs3xin3721/" target="_blank">dreamweaver教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/JSJQueryxin3721/" target="_blank">javascript教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/FlashCS321hulian/" target="_blank">flash教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/VisualBasicenet/" target="_blank">vb教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/VF2xin3721/" target="_blank">计算机二级vfp</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/Accessxin3721/" target="_blank">access教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/HTML21hulian/" target="_blank">html5教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/eschool/csharpxin3721/" target="_blank">C#教程</a></li>
+<li class="list1"><a href="https://www.xin3721.com/class4/" target="_blank">web前端</a> </li>
+<li><a href="https://www.918168.com/" target="_blank">python入门教程</a> </li>
+</ul>
+
+<style type="text/css">
+/* fixediv */
+.fixediv{position:fixed;top:140px;z-index:9999;height:216px;width:100px;}
+*html .fixediv{position:absolute;top:expression(eval(document.documentElement.scrollTop));margin:140px 0 0 0;}
+
+.fixediv-r{right:30px; background:url(https://www.xin3721.com/picture/jpeg/315.jpg);width:110px;height:220px;}
+.fixediv .btn{height:25px;background:#CCCCCC;text-align:right;line-height:25px;overflow:hidden;}
+</style>
+
+
+
+
+
+<div id="Bar11901_big" class="fixediv fixediv-r">
+
+&nbsp;&nbsp;<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=28847463&amp;site=qq&amp;menu=yes"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/107.gif" style="margin:65px 0 0 0"></a>
+&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=447155538&amp;site=qq&amp;menu=yes"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/101.gif" style="margin:20px 0 0 0"></a>
+&nbsp;&nbsp;&nbsp;<a target="_blank" href="https://amos.alicdn.com/getcid.aw?spm=a1z10.1-c.0.0.13a11421QoNSW0&amp;v=3&amp;groupid=0&amp;s=1&amp;charset=utf-8&amp;uid=xin3721_2007&amp;site=cntaobao&amp;fromid=cntaobaoxin3721_2007"><img src="./C#教程之【AutoFac】依赖注入和控制反转的使用_files/112.gif" style="margin:10px 0 0 0"></a>
+	</div>
+
+<div id="bottom_title2">
+
+<a href="https://www.xin3721.com/inc/about.html" target="_blank">关于我们</a>--<a href="https://www.xin3721.com/inc/ad.html" target="_blank">广告服务</a>--<a href="https://www.xin3721.com/inc/mzsm.html" target="_blank">免责声明</a>--<a href="https://www.xin3721.com/inc/help.html" target="_blank">本站帮助</a>-<a href="https://www.xin3721.com/inc/friend.htm" target="_blank">友情链接</a>--<a href="https://www.xin3721.com/inc/copyright.html" target="_blank">版权声明</a>--<a href="https://www.xin3721.com/inc/lxwm.html" target="_blank">联系我们</a>
+
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+<a href="http://www.beian.miit.gov.cn/" rel="nofollow" target="_blank">黑ICP备07002182号</a>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+</body></html>

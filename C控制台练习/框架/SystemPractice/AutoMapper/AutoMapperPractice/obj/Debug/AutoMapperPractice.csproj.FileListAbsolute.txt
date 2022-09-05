@@ -1,0 +1,14 @@
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.exe.config
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.exe
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.pdb
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapper.dll
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapper.pdb
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapper.xml
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\obj\Debug\AutoMapperPractice.exe
+E:\控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\obj\Debug\AutoMapperPractice.pdb
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.exe.config
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.exe
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\bin\Debug\AutoMapperPractice.pdb
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\obj\Debug\AutoMapperPractice.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\obj\Debug\AutoMapperPractice.exe
+E:\Else\C控制台练习\SystemPractice\AutoMapper\AutoMapperPractice\obj\Debug\AutoMapperPractice.pdb

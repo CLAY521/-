@@ -1,0 +1,10 @@
+E:\控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.exe.config
+E:\控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.exe
+E:\控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.pdb
+E:\控制台练习\SystemPractice\QRC\Attribute\obj\Debug\Attribute.exe
+E:\控制台练习\SystemPractice\QRC\Attribute\obj\Debug\Attribute.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.exe
+E:\Else\C控制台练习\SystemPractice\QRC\Attribute\bin\Debug\Attribute.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\Attribute\obj\Debug\Attribute.exe
+E:\Else\C控制台练习\SystemPractice\QRC\Attribute\obj\Debug\Attribute.pdb

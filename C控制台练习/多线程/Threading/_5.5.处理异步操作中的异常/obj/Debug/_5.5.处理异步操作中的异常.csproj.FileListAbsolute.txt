@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\bin\Debug\_5.5.处理异步操作中的异常.exe.config
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\bin\Debug\_5.5.处理异步操作中的异常.exe
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\bin\Debug\_5.5.处理异步操作中的异常.pdb
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\obj\Debug\_5.5.处理异步操作中的异常.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\obj\Debug\_5.5.处理异步操作中的异常.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\obj\Debug\_5.5.处理异步操作中的异常.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\obj\Debug\_5.5.处理异步操作中的异常.exe
+E:\Else\C控制台练习\多线程\Threading\_5.5.处理异步操作中的异常\obj\Debug\_5.5.处理异步操作中的异常.pdb

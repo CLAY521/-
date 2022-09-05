@@ -1,0 +1,12 @@
+// JavaScript Document
+//搜索框
+$(window).scroll(function(){		
+	var slH2=$(window).scrollTop();		
+	if(slH2 > 50){
+		$(".newsContentHeaderMid").addClass("fixed");
+	}else{
+		$(".newsContentHeaderMid").removeClass("fixed");
+	}
+		
+});
+

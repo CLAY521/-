@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\Threading\_4.1创建任务\obj\Debug\_4.1创建任务.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\Threading\_4.1创建任务\obj\Debug\_4.1创建任务.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\Threading\_4.1创建任务\obj\Debug\_4.1创建任务.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\Threading\_4.1创建任务\bin\Debug\_4.1创建任务.exe.config
+E:\Else\C控制台练习\Threading\_4.1创建任务\bin\Debug\_4.1创建任务.exe
+E:\Else\C控制台练习\Threading\_4.1创建任务\bin\Debug\_4.1创建任务.pdb
+E:\Else\C控制台练习\Threading\_4.1创建任务\obj\Debug\_4.1创建任务.exe
+E:\Else\C控制台练习\Threading\_4.1创建任务\obj\Debug\_4.1创建任务.pdb

@@ -1,0 +1,12 @@
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.exe.config
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.exe
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.pdb
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.csprojResolveAssemblyReference.cache
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.exe
+E:\控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.exe
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.exe
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\bin\Debug\HttpRequestAndHttpResponse.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\HttpRequestAndHttpResponse\obj\Debug\HttpRequestAndHttpResponse.csprojResolveAssemblyReference.cache

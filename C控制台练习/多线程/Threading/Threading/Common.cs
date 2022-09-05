@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Threading
+{
+    public static class Common
+    {
+        //打印当前线程的Id
+        public static void PringNumbers()
+        {
+            Console.WriteLine("开始打印数字...");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"当前线程Id：{Thread.CurrentThread.ManagedThreadId},数字：{i}");
+            }
+        }
+        //打印当前线程的Id（打印之前睡眠一秒）
+        public static void PringNumbersWithDelay()
+        {
+            Console.WriteLine("开始打印数字...");
+            for (int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine($"当前线程Id：{Thread.CurrentThread.ManagedThreadId},数字：{i}");
+            }
+        }
+        //打印当前线程的名字，状态和id
+        public static void PringNumbersWithStatus()
+        {
+            Console.WriteLine("开始打印数字...");
+            Console.WriteLine($"当前线程{Thread.CurrentThread.Name}的状态：{Thread.CurrentThread.ThreadState.ToString()}");
+            for (int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine($"当前线程Id:{Thread.CurrentThread.ManagedThreadId},数字:{i}");
+            }
+        }
+    }
+}

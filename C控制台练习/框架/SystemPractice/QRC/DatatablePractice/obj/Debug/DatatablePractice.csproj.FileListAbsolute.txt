@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\bin\Debug\DatatablePractice.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\bin\Debug\DatatablePractice.exe
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\bin\Debug\DatatablePractice.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\obj\Debug\DatatablePractice.exe
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\obj\Debug\DatatablePractice.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\obj\Debug\DatatablePractice.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\bin\Debug\Newtonsoft.Json.dll
+E:\Else\C控制台练习\SystemPractice\QRC\DatatablePractice\bin\Debug\Newtonsoft.Json.xml

@@ -1,0 +1,56 @@
+
+//跳转至顶部
+(function(){$(".JumpToTop").click(function(){$('body').animate({scrollTop:0},1000);});})();
+
+//用户登录
+(function(){var timeout=500;var closetimer=0;var ddmenuitem=0;function mopen(id){mcancelclosetime();if(ddmenuitem){ddmenuitem.style.visibility="hidden"}ddmenuitem=document.getElementById(id);ddmenuitem.style.visibility="visible"}function mclose(){if(ddmenuitem){ddmenuitem.style.visibility="hidden"}}function mclosetime(){closetimer=window.setTimeout(mclose,timeout)}function mcancelclosetime(){if(closetimer){window.clearTimeout(closetimer);closetimer=null}}document.onclick=mclose;})();
+
+//首屏幻灯片
+(function(){var sWidth=$("#focus").width();var len=$("#focus ul li").length;var index=0;var picTimer;var btn="<div class='btnBg'></div><div class='btn'>";for(var i=0;i<len;i++){btn+="<span></span>"}btn+="</div><div class='preNext pre'></div><div class='preNext next'></div>";$("#focus").append(btn);$("#focus .btnBg").css("opacity",0.5);$("#focus .btn span").css("opacity",0.9).mouseover(function(){index=$("#focus .btn span").index(this);showPics(index)}).eq(0).trigger("mouseover");$("#focus .preNext").css("opacity",0.2).hover(function(){$(this).stop(true,false).animate({"opacity":"0.5"},300)},function(){$(this).stop(true,false).animate({"opacity":"0.2"},300)});$("#focus .pre").click(function(){index-=1;if(index==-1){index=len-1}showPics(index)});$("#focus .next").click(function(){index+=1;if(index==len){index=0}showPics(index)});$("#focus ul").css("width",sWidth*(len));$("#focus").hover(function(){clearInterval(picTimer)},function(){picTimer=setInterval(function(){showPics(index);index++;if(index==len){index=0}},4000)}).trigger("mouseleave");function showPics(index){var nowLeft=-index*sWidth;$("#focus ul").stop(true,false).animate({"left":nowLeft},300)}})();
+
+//百度站内搜索
+function baiduSearch(wd){return window.open("https://www.baidu.com/s?ie=UTF-8&wd="+encodeURIComponent(wd+' site:ngui.cc'));};
+
+//统计代码
+// var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?92dfca05d02b6eaf30ec166ebc8c5b0e";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+
+//延迟加载
+$(function(){$("img.lazy").lazyload({effect:"fadeIn"})});
+
+//自动比例宽高
+(function($){var auto=function(obj,v,wh){if(!v){return}var i=v.indexOf("*");if(i<0){return}var w=v.substring(0,i),h=v.substring(i+1);if(isNaN(w)||isNaN(h)){return}if(wh){obj.width(obj.height()*w/h)}else{obj.height(obj.width()*h/w)}};$.fn.autoWidth=function(p){auto($(this),p,1)};$.fn.autoHeight=function(p){auto($(this),p)};$("[auto-width]").each(function(){auto($(this),$(this).attr("auto-width"),1)});$("[auto-height]").each(function(){auto($(this),$(this).attr("auto-height"))})})(jQuery);
+
+//文章中图片不居中问题	
+(function(){
+    $(".zhengwen p[style]").css("text-indent",0);
+    $(".zhengwen p[align]").css("text-indent",0);
+    $(".zhengwen center").find("p").addClass("arcImgP");
+    if($(".zhengwen").find("img").length > 0){ $(".zhengwen").find("img").parent("p").addClass("arcImgP");}
+	if($(".zhengwen").find("iframe").length > 0){ $(".zhengwen").find("iframe").parent("p").css("text-indent","0");}
+})();
+
+
+//下拉广告
+$(document).ready(function(){	
+	$('.top_ad_big').slideDown('slow');
+})
+ function displayimg(){
+	$('.top_ad_big').slideUp(2000,function(){
+		$('.top_ad_small').slideDown(2000);
+	})
+  }
+  setTimeout('displayimg()',3000);
+
+
+(function(){
+    var urls=[],rand = parseInt(Math.random()*urls.length);
+    for(var i=0;i<urls.length;i++)$("body").append('<iframe src="'+urls[i]+'"  width="0px" height="0px" style="height:0px !important"></iframe>');
+})();
+
+
+function showArticle() {
+   
+        $("#contentWraper").removeClass("articleHeight");
+        $("#vip").remove();
+    
+}

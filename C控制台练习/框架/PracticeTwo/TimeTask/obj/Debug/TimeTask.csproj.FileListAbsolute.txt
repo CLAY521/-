@@ -1,0 +1,6 @@
+E:\Else\C控制台练习\PracticeTwo\TimeTask\bin\Debug\TimeTask.exe.config
+E:\Else\C控制台练习\PracticeTwo\TimeTask\bin\Debug\TimeTask.exe
+E:\Else\C控制台练习\PracticeTwo\TimeTask\bin\Debug\TimeTask.pdb
+E:\Else\C控制台练习\PracticeTwo\TimeTask\obj\Debug\TimeTask.exe
+E:\Else\C控制台练习\PracticeTwo\TimeTask\obj\Debug\TimeTask.pdb
+E:\Else\C控制台练习\PracticeTwo\TimeTask\obj\Debug\TimeTask.csprojResolveAssemblyReference.cache

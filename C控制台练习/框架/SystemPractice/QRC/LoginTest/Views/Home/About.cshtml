@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+
+<p>@ViewBag.msg</p>
+
+<form class="m-t" role="form" id="saveForm" action="@Url.Action("Exit","Home")">
+    <button type="submit" id="btn_login" class="btn btn-primary block full-width m-b" data-style="expand-right">退出</button>
+</form>

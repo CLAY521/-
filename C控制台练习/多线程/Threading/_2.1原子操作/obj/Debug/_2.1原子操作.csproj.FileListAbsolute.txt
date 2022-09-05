@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\Threading\_2.1原子操作\bin\Debug\_2.1原子操作.exe.config
+E:\Else\C控制台练习\Threading\_2.1原子操作\bin\Debug\_2.1原子操作.exe
+E:\Else\C控制台练习\Threading\_2.1原子操作\bin\Debug\_2.1原子操作.pdb
+E:\Else\C控制台练习\Threading\_2.1原子操作\obj\Debug\_2.1原子操作.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\Threading\_2.1原子操作\obj\Debug\_2.1原子操作.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\Threading\_2.1原子操作\obj\Debug\_2.1原子操作.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\Threading\_2.1原子操作\obj\Debug\_2.1原子操作.exe
+E:\Else\C控制台练习\Threading\_2.1原子操作\obj\Debug\_2.1原子操作.pdb

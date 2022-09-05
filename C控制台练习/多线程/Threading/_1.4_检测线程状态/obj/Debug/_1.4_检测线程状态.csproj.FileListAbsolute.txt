@@ -1,0 +1,12 @@
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\_1.4_检测线程状态.exe.config
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\_1.4_检测线程状态.exe
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\_1.4_检测线程状态.pdb
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\Threading.exe
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\Threading.pdb
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\bin\Debug\Threading.exe.config
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.csproj.CopyComplete
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.exe
+E:\Else\C控制台练习\Threading\_1.4_检测线程状态\obj\Debug\_1.4_检测线程状态.pdb

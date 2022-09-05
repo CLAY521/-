@@ -1,0 +1,11 @@
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.exe.config
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.exe
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.pdb
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\obj\Debug\DuoDelegates.csprojResolveAssemblyReference.cache
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\obj\Debug\DuoDelegates.exe
+E:\控制台练习\SystemPractice\QRC\DuoDelegates\obj\Debug\DuoDelegates.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.exe
+E:\Else\C控制台练习\SystemPractice\QRC\DuoDelegates\bin\Debug\DuoDelegates.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\DuoDelegates\obj\Debug\DuoDelegates.exe
+E:\Else\C控制台练习\SystemPractice\QRC\DuoDelegates\obj\Debug\DuoDelegates.pdb

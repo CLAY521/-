@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\bin\Debug\RequestResponse.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\bin\Debug\RequestResponse.exe
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\bin\Debug\RequestResponse.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\bin\Debug\Newtonsoft.Json.dll
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\bin\Debug\Newtonsoft.Json.xml
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\obj\Debug\RequestResponse.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\obj\Debug\RequestResponse.exe
+E:\Else\C控制台练习\SystemPractice\QRC\RequestResponse\obj\Debug\RequestResponse.pdb

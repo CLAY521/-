@@ -1,0 +1,5 @@
+E:\Else\C控制台练习\SystemPractice\QRC\Type T\bin\Debug\Type T.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\Type T\bin\Debug\Type T.exe
+E:\Else\C控制台练习\SystemPractice\QRC\Type T\bin\Debug\Type T.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\Type T\obj\Debug\Type T.exe
+E:\Else\C控制台练习\SystemPractice\QRC\Type T\obj\Debug\Type T.pdb

@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\bin\Debug\IpToGetAddrs.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\bin\Debug\IpToGetAddrs.exe
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\bin\Debug\IpToGetAddrs.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\bin\Debug\Newtonsoft.Json.dll
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\bin\Debug\Newtonsoft.Json.xml
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\obj\Debug\IpToGetAddrs.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\obj\Debug\IpToGetAddrs.exe
+E:\Else\C控制台练习\SystemPractice\QRC\IpToGetAddrs\obj\Debug\IpToGetAddrs.pdb

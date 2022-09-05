@@ -1,0 +1,13 @@
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\IPToAddress.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\IPToAddress.exe
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\IPToAddress.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\IP2Region.dll
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\obj\Debug\IPToAddress.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\obj\Debug\IPToAddress.exe
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\obj\Debug\IPToAddress.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\Coordinate.dll
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\GizmoBase.dll
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\Newtonsoft.Json.dll
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\Coordinate.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\GizmoBase.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\IPToAddress\bin\Debug\Newtonsoft.Json.xml

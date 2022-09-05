@@ -1,0 +1,6 @@
+E:\Else\C控制台练习\PracticeTwo\LockPractice\bin\Debug\LockPractice.exe.config
+E:\Else\C控制台练习\PracticeTwo\LockPractice\bin\Debug\LockPractice.exe
+E:\Else\C控制台练习\PracticeTwo\LockPractice\bin\Debug\LockPractice.pdb
+E:\Else\C控制台练习\PracticeTwo\LockPractice\obj\Debug\LockPractice.exe
+E:\Else\C控制台练习\PracticeTwo\LockPractice\obj\Debug\LockPractice.pdb
+E:\Else\C控制台练习\PracticeTwo\LockPractice\obj\Debug\LockPractice.csprojResolveAssemblyReference.cache

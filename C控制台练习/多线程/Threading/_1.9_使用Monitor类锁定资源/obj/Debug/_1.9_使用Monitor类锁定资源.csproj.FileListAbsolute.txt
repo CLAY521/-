@@ -1,0 +1,12 @@
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\_1.9_使用Monitor类锁定资源.exe.config
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\_1.9_使用Monitor类锁定资源.exe
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\_1.9_使用Monitor类锁定资源.pdb
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\Threading.exe
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\Threading.pdb
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\bin\Debug\Threading.exe.config
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.csproj.CopyComplete
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.exe
+E:\Else\C控制台练习\Threading\_1.9_使用Monitor类锁定资源\obj\Debug\_1.9_使用Monitor类锁定资源.pdb

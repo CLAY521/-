@@ -1,0 +1,10 @@
+E:\控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.exe.config
+E:\控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.exe
+E:\控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.pdb
+E:\控制台练习\SystemPractice\QRC\HashSetes\obj\Debug\HashSetes.exe
+E:\控制台练习\SystemPractice\QRC\HashSetes\obj\Debug\HashSetes.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.exe
+E:\Else\C控制台练习\SystemPractice\QRC\HashSetes\bin\Debug\HashSetes.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\HashSetes\obj\Debug\HashSetes.exe
+E:\Else\C控制台练习\SystemPractice\QRC\HashSetes\obj\Debug\HashSetes.pdb

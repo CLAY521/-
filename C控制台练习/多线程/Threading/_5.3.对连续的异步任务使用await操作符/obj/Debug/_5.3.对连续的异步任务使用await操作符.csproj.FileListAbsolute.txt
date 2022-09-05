@@ -1,0 +1,8 @@
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\bin\Debug\_5.3.对连续的异步任务使用await操作符.exe.config
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\bin\Debug\_5.3.对连续的异步任务使用await操作符.exe
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\bin\Debug\_5.3.对连续的异步任务使用await操作符.pdb
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\obj\Debug\_5.3.对连续的异步任务使用await操作符.csproj.AssemblyReference.cache
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\obj\Debug\_5.3.对连续的异步任务使用await操作符.csproj.SuggestedBindingRedirects.cache
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\obj\Debug\_5.3.对连续的异步任务使用await操作符.csproj.CoreCompileInputs.cache
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\obj\Debug\_5.3.对连续的异步任务使用await操作符.exe
+E:\Else\C控制台练习\多线程\Threading\_5.3.对连续的异步任务使用await操作符\obj\Debug\_5.3.对连续的异步任务使用await操作符.pdb

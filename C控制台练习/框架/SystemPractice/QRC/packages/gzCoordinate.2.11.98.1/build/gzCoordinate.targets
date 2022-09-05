@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\win10\x64\Debug\*.*" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\win10\x64\Release\*.*" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\android\arm64\Debug\*.*" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\android\arm64\Release\*.*" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\android\arm\Debug\*.*" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <BaseLibBinaries Include="$(MSBuildThisFileDirectory)native\libs\android\arm\Release\*.*" />
+  </ItemGroup>
+  <Target Name="CustomPrebuildTarget" AfterTargets="PrepareForBuild">
+    <Copy SourceFiles="@(BaseLibBinaries)" DestinationFolder="$(OutDir)" />
+  </Target>
+</Project>

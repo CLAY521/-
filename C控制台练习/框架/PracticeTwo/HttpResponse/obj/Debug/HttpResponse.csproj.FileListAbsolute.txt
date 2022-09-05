@@ -1,0 +1,6 @@
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\bin\Debug\HttpResponse.exe.config
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\bin\Debug\HttpResponse.exe
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\bin\Debug\HttpResponse.pdb
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\obj\Debug\HttpResponse.csprojResolveAssemblyReference.cache
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\obj\Debug\HttpResponse.exe
+E:\Else\C控制台练习\PracticeTwo\HttpResponse\obj\Debug\HttpResponse.pdb

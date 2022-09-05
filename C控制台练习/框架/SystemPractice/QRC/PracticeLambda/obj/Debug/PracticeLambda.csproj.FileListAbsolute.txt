@@ -1,0 +1,6 @@
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\bin\Debug\PracticeLambda.exe.config
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\bin\Debug\PracticeLambda.exe
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\bin\Debug\PracticeLambda.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\obj\Debug\PracticeLambda.exe
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\obj\Debug\PracticeLambda.pdb
+E:\Else\C控制台练习\SystemPractice\QRC\PracticeLambda\obj\Debug\PracticeLambda.csprojResolveAssemblyReference.cache
