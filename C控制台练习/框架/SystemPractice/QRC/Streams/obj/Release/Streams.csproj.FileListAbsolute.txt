@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Release\Streams.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Release\Streams.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Release\Streams.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\obj\Release\Streams.csprojResolveAssemblyReference.cache
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\obj\Release\Streams.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\obj\Release\Streams.pdb

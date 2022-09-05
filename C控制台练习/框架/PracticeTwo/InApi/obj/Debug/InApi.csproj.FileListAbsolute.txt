@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\PracticeTwo\InApi\bin\Debug\InApi.exe.config
-E:\Else\C控制台练习\PracticeTwo\InApi\bin\Debug\InApi.exe
-E:\Else\C控制台练习\PracticeTwo\InApi\bin\Debug\InApi.pdb
-E:\Else\C控制台练习\PracticeTwo\InApi\obj\Debug\InApi.csprojResolveAssemblyReference.cache
-E:\Else\C控制台练习\PracticeTwo\InApi\obj\Debug\InApi.exe
-E:\Else\C控制台练习\PracticeTwo\InApi\obj\Debug\InApi.pdb

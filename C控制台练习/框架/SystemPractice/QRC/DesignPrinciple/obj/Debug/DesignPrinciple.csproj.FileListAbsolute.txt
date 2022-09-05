@@ -1,5 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\DesignPrinciple\bin\Debug\DesignPrinciple.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\DesignPrinciple\bin\Debug\DesignPrinciple.exe
-E:\Else\C控制台练习\SystemPractice\QRC\DesignPrinciple\bin\Debug\DesignPrinciple.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\DesignPrinciple\obj\Debug\DesignPrinciple.exe
-E:\Else\C控制台练习\SystemPractice\QRC\DesignPrinciple\obj\Debug\DesignPrinciple.pdb

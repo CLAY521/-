@@ -1,8 +1,0 @@
-E:\控制台练习\SystemPractice\QRC\Asp.net\bin\Debug\Asp.net.exe.config
-E:\控制台练习\SystemPractice\QRC\Asp.net\bin\Debug\Asp.net.exe
-E:\控制台练习\SystemPractice\QRC\Asp.net\bin\Debug\Asp.net.pdb
-E:\控制台练习\SystemPractice\QRC\Asp.net\obj\Debug\Asp.net.exe
-E:\控制台练习\SystemPractice\QRC\Asp.net\obj\Debug\Asp.net.pdb
-E:\控制台练习\SystemPractice\QRC\Asp.net\obj\Debug\Asp.net.csprojResolveAssemblyReference.cache
-E:\控制台练习\SystemPractice\QRC\Asp.net\bin\Debug\ServiceStack.Redis.dll
-E:\控制台练习\SystemPractice\QRC\Asp.net\bin\Debug\ServiceStack.Redis.xml

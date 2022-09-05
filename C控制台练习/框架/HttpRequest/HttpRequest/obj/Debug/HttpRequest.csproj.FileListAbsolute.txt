@@ -1,5 +1,0 @@
-E:\Else\C控制台练习\HttpRequest\HttpRequest\bin\Debug\HttpRequest.exe.config
-E:\Else\C控制台练习\HttpRequest\HttpRequest\bin\Debug\HttpRequest.exe
-E:\Else\C控制台练习\HttpRequest\HttpRequest\bin\Debug\HttpRequest.pdb
-E:\Else\C控制台练习\HttpRequest\HttpRequest\obj\Debug\HttpRequest.exe
-E:\Else\C控制台练习\HttpRequest\HttpRequest\obj\Debug\HttpRequest.pdb

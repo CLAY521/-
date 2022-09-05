@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\bin\Debug\PracticeTwo.exe.config
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\bin\Debug\PracticeTwo.exe
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\bin\Debug\PracticeTwo.pdb
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\obj\Debug\HttpWebRequests.csprojResolveAssemblyReference.cache
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\obj\Debug\PracticeTwo.exe
-E:\Else\C控制台练习\PracticeTwo\PracticeTwo\obj\Debug\PracticeTwo.pdb

@@ -1,6 +1,0 @@
-E:\控制台练习\SystemPractice\QRC\Microsoft\bin\Debug\Microsoft.exe.config
-E:\控制台练习\SystemPractice\QRC\Microsoft\bin\Debug\Microsoft.exe
-E:\控制台练习\SystemPractice\QRC\Microsoft\bin\Debug\Microsoft.pdb
-E:\控制台练习\SystemPractice\QRC\Microsoft\obj\Debug\Microsoft.csprojResolveAssemblyReference.cache
-E:\控制台练习\SystemPractice\QRC\Microsoft\obj\Debug\Microsoft.exe
-E:\控制台练习\SystemPractice\QRC\Microsoft\obj\Debug\Microsoft.pdb

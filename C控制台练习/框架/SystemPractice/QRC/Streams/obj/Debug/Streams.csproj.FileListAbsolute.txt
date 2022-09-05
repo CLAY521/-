@@ -1,5 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Debug\Streams.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Debug\Streams.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\bin\Debug\Streams.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\obj\Debug\Streams.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Streams\obj\Debug\Streams.pdb

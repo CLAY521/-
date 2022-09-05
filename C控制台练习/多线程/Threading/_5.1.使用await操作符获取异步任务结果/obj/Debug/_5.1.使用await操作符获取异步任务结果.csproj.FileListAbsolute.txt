@@ -1,8 +1,0 @@
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\bin\Debug\_5.1.使用await操作符获取异步任务结果.exe.config
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\bin\Debug\_5.1.使用await操作符获取异步任务结果.exe
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\bin\Debug\_5.1.使用await操作符获取异步任务结果.pdb
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\obj\Debug\_5.1.使用await操作符获取异步任务结果.csproj.AssemblyReference.cache
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\obj\Debug\_5.1.使用await操作符获取异步任务结果.csproj.SuggestedBindingRedirects.cache
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\obj\Debug\_5.1.使用await操作符获取异步任务结果.csproj.CoreCompileInputs.cache
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\obj\Debug\_5.1.使用await操作符获取异步任务结果.exe
-E:\Else\C控制台练习\多线程\Threading\_5.1.使用await操作符获取异步任务结果\obj\Debug\_5.1.使用await操作符获取异步任务结果.pdb

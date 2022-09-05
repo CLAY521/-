@@ -1,7 +1,0 @@
-E:\控制台练习\SystemPractice\QRC\Dapper\bin\Debug\Dapper.exe.config
-E:\控制台练习\SystemPractice\QRC\Dapper\bin\Debug\Dapper.exe
-E:\控制台练习\SystemPractice\QRC\Dapper\bin\Debug\Dapper.pdb
-E:\控制台练习\SystemPractice\QRC\Dapper\bin\Debug\Dapper.dll
-E:\控制台练习\SystemPractice\QRC\Dapper\bin\Debug\Dapper.xml
-E:\控制台练习\SystemPractice\QRC\Dapper\obj\Debug\Dapper.exe
-E:\控制台练习\SystemPractice\QRC\Dapper\obj\Debug\Dapper.pdb

@@ -1,8 +1,0 @@
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\bin\Debug\_2.3使用SemaphoreSlim类.exe.config
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\bin\Debug\_2.3使用SemaphoreSlim类.exe
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\bin\Debug\_2.3使用SemaphoreSlim类.pdb
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\obj\Debug\_2.3使用SemaphoreSlim类.csproj.AssemblyReference.cache
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\obj\Debug\_2.3使用SemaphoreSlim类.csproj.SuggestedBindingRedirects.cache
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\obj\Debug\_2.3使用SemaphoreSlim类.csproj.CoreCompileInputs.cache
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\obj\Debug\_2.3使用SemaphoreSlim类.exe
-E:\Else\C控制台练习\Threading\_2.3使用SemaphoreSlim类\obj\Debug\_2.3使用SemaphoreSlim类.pdb

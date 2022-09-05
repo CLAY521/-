@@ -1,8 +1,0 @@
-E:\Else\C控制台练习\Threading\_34取消异步操作\obj\Debug\_3.4取消异步操作.csproj.AssemblyReference.cache
-E:\Else\C控制台练习\Threading\_34取消异步操作\obj\Debug\_3.4取消异步操作.csproj.SuggestedBindingRedirects.cache
-E:\Else\C控制台练习\Threading\_34取消异步操作\obj\Debug\_3.4取消异步操作.csproj.CoreCompileInputs.cache
-E:\Else\C控制台练习\Threading\_34取消异步操作\bin\Debug\_34取消异步操作.exe.config
-E:\Else\C控制台练习\Threading\_34取消异步操作\bin\Debug\_34取消异步操作.exe
-E:\Else\C控制台练习\Threading\_34取消异步操作\bin\Debug\_34取消异步操作.pdb
-E:\Else\C控制台练习\Threading\_34取消异步操作\obj\Debug\_34取消异步操作.exe
-E:\Else\C控制台练习\Threading\_34取消异步操作\obj\Debug\_34取消异步操作.pdb

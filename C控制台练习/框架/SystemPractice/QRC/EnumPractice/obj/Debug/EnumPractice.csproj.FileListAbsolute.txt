@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\bin\Debug\EnumPractice.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\bin\Debug\EnumPractice.exe
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\bin\Debug\EnumPractice.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\obj\Debug\EnumPractice.csprojResolveAssemblyReference.cache
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\obj\Debug\EnumPractice.exe
-E:\Else\C控制台练习\SystemPractice\QRC\EnumPractice\obj\Debug\EnumPractice.pdb

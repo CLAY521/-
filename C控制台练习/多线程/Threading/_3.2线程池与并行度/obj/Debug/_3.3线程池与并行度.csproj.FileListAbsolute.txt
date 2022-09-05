@@ -1,8 +1,0 @@
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\bin\Debug\_3.2线程池与并行度.exe.config
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\bin\Debug\_3.2线程池与并行度.exe
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\bin\Debug\_3.2线程池与并行度.pdb
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\obj\Debug\_3.3线程池与并行度.csproj.AssemblyReference.cache
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\obj\Debug\_3.3线程池与并行度.csproj.SuggestedBindingRedirects.cache
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\obj\Debug\_3.3线程池与并行度.csproj.CoreCompileInputs.cache
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\obj\Debug\_3.2线程池与并行度.exe
-E:\Else\C控制台练习\Threading\_3.2线程池与并行度\obj\Debug\_3.2线程池与并行度.pdb

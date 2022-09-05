@@ -1,5 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\BasicFeatures\bin\Debug\BasicFeatures.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\BasicFeatures\bin\Debug\BasicFeatures.exe
-E:\Else\C控制台练习\SystemPractice\QRC\BasicFeatures\bin\Debug\BasicFeatures.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\BasicFeatures\obj\Debug\BasicFeatures.exe
-E:\Else\C控制台练习\SystemPractice\QRC\BasicFeatures\obj\Debug\BasicFeatures.pdb

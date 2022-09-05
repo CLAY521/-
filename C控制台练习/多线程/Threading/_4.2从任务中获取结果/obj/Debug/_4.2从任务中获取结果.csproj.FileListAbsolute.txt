@@ -1,8 +1,0 @@
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\bin\Debug\_4.2从任务中获取结果.exe.config
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\bin\Debug\_4.2从任务中获取结果.exe
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\bin\Debug\_4.2从任务中获取结果.pdb
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\obj\Debug\_4.2从任务中获取结果.csproj.AssemblyReference.cache
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\obj\Debug\_4.2从任务中获取结果.csproj.SuggestedBindingRedirects.cache
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\obj\Debug\_4.2从任务中获取结果.csproj.CoreCompileInputs.cache
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\obj\Debug\_4.2从任务中获取结果.exe
-E:\Else\C控制台练习\多线程\Threading\_4.2从任务中获取结果\obj\Debug\_4.2从任务中获取结果.pdb

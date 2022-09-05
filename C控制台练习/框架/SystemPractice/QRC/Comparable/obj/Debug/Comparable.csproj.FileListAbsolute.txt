@@ -1,5 +1,0 @@
-E:\Else\C控制台练习\SystemPractice\QRC\Comparable\bin\Debug\Comparable.exe.config
-E:\Else\C控制台练习\SystemPractice\QRC\Comparable\bin\Debug\Comparable.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Comparable\bin\Debug\Comparable.pdb
-E:\Else\C控制台练习\SystemPractice\QRC\Comparable\obj\Debug\Comparable.exe
-E:\Else\C控制台练习\SystemPractice\QRC\Comparable\obj\Debug\Comparable.pdb

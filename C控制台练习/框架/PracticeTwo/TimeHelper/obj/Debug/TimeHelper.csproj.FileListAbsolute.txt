@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\bin\Debug\TimeHelper.exe.config
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\bin\Debug\TimeHelper.exe
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\bin\Debug\TimeHelper.pdb
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\obj\Debug\TimeHelper.exe
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\obj\Debug\TimeHelper.pdb
-E:\Else\C控制台练习\PracticeTwo\TimeHelper\obj\Debug\TimeHelper.csprojResolveAssemblyReference.cache

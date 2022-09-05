@@ -1,6 +1,0 @@
-E:\Else\C控制台练习\PracticeTwo\Regexs\bin\Debug\Regexs.exe.config
-E:\Else\C控制台练习\PracticeTwo\Regexs\bin\Debug\Regexs.exe
-E:\Else\C控制台练习\PracticeTwo\Regexs\bin\Debug\Regexs.pdb
-E:\Else\C控制台练习\PracticeTwo\Regexs\obj\Debug\Regexs.csprojResolveAssemblyReference.cache
-E:\Else\C控制台练习\PracticeTwo\Regexs\obj\Debug\Regexs.exe
-E:\Else\C控制台练习\PracticeTwo\Regexs\obj\Debug\Regexs.pdb
