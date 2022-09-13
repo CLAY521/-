@@ -1,0 +1,43 @@
+git init                  --初始化git仓库
+git init newrepo    --最后的是创建新文件夹的文件夹名称   
+git add                  --添加在暂存区
+git commit            --提交到git仓库
+git clone repo        --最后的是git地址    --克隆
+git config -e           --对当前仓库
+git config -e  --global    针对系统上所有仓库（去掉global的话只对当前用户有效）
+git config --global user.name “runoob”  --设置提交代码时的用户信息
+git status                --查看仓库当前的状态，显示有变更的文件
+git diff                    --比较文件的不同  暂存区和工作区的差异
+git reset                  --回退版本   还原
+git rm                     --将文件从暂存区和工作区中删除
+git mv                     --移动或重命名工作区文件
+git log                     --查看历史提交记录
+gitblame 《file》      --以列表形式查看指定文件的历史修改记录
+git remote               --远程仓库操作
+git fetch                  --从远程获取代码库
+git pull                    --下载远程底阿妈并合并
+git push                  --上传远程代码并合并
+git branch（分支名称）  --创建分支
+git checkout（分支名称） --切换分支（当切换分支时，会执行还原的操作）
+git merge                    --合并分支
+ls                                 --当前文件夹名称
+
+
+正常修改  更新  提交
+	1.git init		--初始化仓库
+	2.git clone		--克隆
+	3.git add		--添加
+	4.git commit	--提交
+	5.git pull		--更新
+	6.git push		--推送
+分支  合并  提交
+	1.git branch 新分支名	--创建新分支
+	2.git checkout 新分支名	--切换到新分支
+	3.git add			--添加
+	4.git commit		--提交
+	5.git push			--推送
+	6.git checkout master	--切换主分支
+	7.git pull origin 新分支名	--从新分支中更新到本地
+	8.git merge origin 新分支名	--合并主和分
+	9.git push			--推送
+	（如果不是新创建的   还要在5之前  pull  更新一下）

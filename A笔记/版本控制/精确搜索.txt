@@ -1,0 +1,16 @@
+1.
+	in:name 关键词--标题
+2.
+	in:readname 关键词--项目详细说明
+3.
+	in:description 关键词--项目的简单说明
+4.
+	stars:>1000--点赞数
+5.
+	in:Contributors:作者
+6.
+	language:条件--语言
+7.
+	pushed:条件--时间
+8.
+	Awesome 关键字--学习、工具搜集
