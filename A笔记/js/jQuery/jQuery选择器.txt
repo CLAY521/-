@@ -61,3 +61,7 @@ eq选择器：
 	$("p:hidden")所有隐藏的p元素
 	$("table:visible")所有可见的表格
 	$(":root")文档的根元素（html标签  也就是全部的元素了）	
+
+	$(".class1 .class2") 选择class1元素下class2的元素（中间有空格）
+	$(".class1.class2") 选择同时含有class1和class2的元素（中间没有空格）
+	$(".class1,.class2") 选择class1或者class2的元素（中间有逗号）
