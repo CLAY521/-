@@ -21,7 +21,7 @@ eq选择器：
 	$("[href="123"]")带有属性为href  并且值为123的元素
 	$("[href!='123']")带有属性为href  并且值不为123的元素
 	$("[href$=.jpg]")带有属性为href  并且值以'.jpg'结尾的元素
-	$("[title|='Tomorrow']")带有属性为href 并且值等于或以它开头的元素且后边以为连接符-相关联
+	$("[title|='Tomorrow']")带有属性为href 并且值等于或以它开头的元素且后边以连接符-相关联
 	$("[title^='Tom']")带有href属性 且值以Tom开头的元素或等于Tom的元素
 	$("title~=hello")带有title属性，且值包含hello（只包含不等于）
 	$("title*=hello")带有title属性，且值包含hello（只包含也等于）
