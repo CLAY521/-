@@ -78,3 +78,11 @@ $("form").submit(function(){
     alert("提交");
 提交表单时  执行的函数
 });
+$("#id").find("span").addClass("hidden");id下的所有span添加hidden属性（removeClass）
+$("div").each(function(index,dom){ index是索引，dom是dom元素 })
+$("#id").attr("name",value)；id的name属性值替换为value
+$("tbList tbody tr").clone()  克隆当前行
+$("#abc").data("name").replace("iiii",0)id为abc中的data-name中的iiii替换为0
+$("span").parents()返回span的所有长辈元素
+$("li .start").next()带有类名start的每个li元素的后一个同级元素
+$("div p").first()选取第一个div元素内的第一个p元素
