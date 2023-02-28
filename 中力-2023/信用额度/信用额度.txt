@@ -1,0 +1,28 @@
+
+
+后台添加模块和权限  		/CreditLimit/Index
+
+
+
+创建表  			ecCreditLimit
+
+用户详情表添加字段（ecUserInfo）
+剩余保证金		SurplusEarnest
+已返还保证金		ReturnEarnest.
+.
+
+
+
+
+后台添加模块和权限  		/CreditLimit/Index
+
+
+
+创建表  			ecCreditLimit
+
+用户详情表添加字段（ecUserInfo）
+剩余保证金		SurplusEarnest
+已返还保证金		ReturnEarnest
+
+xmac003  信用额度
+money2   信用额度余额

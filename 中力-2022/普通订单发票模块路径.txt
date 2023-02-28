@@ -1,0 +1,2 @@
+普通订单发票报表      /OrderV2Report/OrderInvoiceV2Index
+导出		/OrderV2Report/OrderInvoiceV2Modify

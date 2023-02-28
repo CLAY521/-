@@ -1,0 +1,141 @@
+拍卖    		/Auction/Index
+	还原	/Auction/Reduction	
+	回收	/Auction/Modify
+	终止	/Auction/Special
+	启用	/Auction/Open
+	新增	/Auction/Modify
+	详情	/Auction/Modify
+	修改	/Auction/Modify
+秒杀		/Seckill/Index
+	还原	/Seckill/Reduction	
+	回收	/Seckill/Modify
+	终止	/Seckill/Special
+	启用	/Seckill/Open
+	新增	/Seckill/Modify
+	详情	/Seckill/Modify
+	修改	/Seckill/Modify
+
+
+
+Auction       	拍卖表   		AuctionController
+
+Id                	主键
+UserId		用户Id（拍卖成功的用户）
+Name          	拍卖名（标题）
+StartTime     	开始时间
+EndTime      	结束时间
+Product       	拍卖产品（是产品的id吗？）
+Price            	起拍价格
+CurrentPrice	当前价格
+ExtendTime  	竞拍延期时长（固定多少秒）
+ExtendTimes	延期到什么时候
+Img              	拍卖图片（多张图片）
+Content        	内容（正文）
+Status           	状态（0：禁用  1：启用）
+IsDel	     	是否删除（0：未删除  1：已删除）
+CreateTime    	创建时间
+
+AuctionRecord    拍卖出价记录表
+
+Id		主键
+AuctionId		拍卖外键
+UserId      		用户Id
+UserName	用户名称
+UserCompany	公司名称
+Price		拍卖出价
+CreateTime 	出价时间（精确到毫秒）
+
+后台：
+	查询  显示  新建  修改  详情（出价记录）  启用  删除  还原  回收站（拍卖表）
+	查询  显示  删除  还原  回收站（拍卖记录表）
+接口：
+	分页显示拍卖列表（10条）（只显示已经启用的拍卖）     
+
+	提交拍卖价格（新增拍卖记录，修改拍卖的当前价）（1.新增之前首先判断拍卖是否启			用，2.判断拍卖是否在活动时间内，3.判断当前账号是否被禁用。4.判断总剩余时间小于			设定的竞拍延期时长，则在结束时间的基础上延后（竞拍延期时长）5.是否登录，没有登录则提		示需要注册）
+
+	拍卖详情
+	最近出价记录（当前产品的最近出价记录，历史最高价，记录数量）
+ 
+	当前用户拍卖成功的列表（是否登录，没有登录则提示需要注册）
+	当前用户拍卖成功的详情（是否登录，没有登录则提示需要注册）
+
+	时间结束（查看当前拍卖谁的价格最高---当前拍卖归谁--赋值拍卖表中的用户id）
+	时间结束调用接口--参数（当前拍卖的id）--查询当前拍卖的记录中谁出价最高，把这个			用户的Id赋值给拍卖表
+
+	特殊会员点击出价记录可以查看该出价人的详细信息？？？
+		
+	
+
+
+Seckill		秒杀表
+
+Id		主键
+StartTime		开始时间
+EndTime		结束时间
+Product		秒杀产品（是产品的id吗？）
+Price		秒杀价格
+Content		秒杀简介
+Img		秒杀图片（多张图片）
+Num		产品数量
+Status           	状态（0：禁用  1：启用）
+IsDel	     	是否删除（0：未删除  1：已删除）
+CreateTime    	创建时间
+
+SeckillSuccess	秒杀成功表
+
+Id		主键
+SeckillId		秒杀表外键
+UserId      		用户Id
+UserName	用户名称
+UserCompany	公司名称
+Num		秒杀数量
+
+
+后台：
+	显示  新建  修改  详情（秒杀成功记录）  启用  删除  回收站
+接口：
+	分页显示拍卖列表（10条）（只显示已经启用的秒杀） 
+
+	申请秒杀(新增秒杀成功表，秒杀数量减少)（1.新增之前首先判断拍卖是否启用，2.判断			拍卖是否在活动时间内，3.判断当前账号是否被禁用。4.有剩余数量。5.当前用户没有抢			购成功过）
+
+	秒杀详情
+	当前用户秒杀成功的秒杀详情
+
+
+
+登录
+
+
+$(".date").val()
+
+$(function () {
+
+})
+
+
+延期限制内加入解释文本: 距离结束时间还有多少秒，竟拍延期时长:提交时加时多少秒		完成
+
+延期限制和竞拍延期时长可以为0							完成
+
+图片批量上传时失败								完成
+
+拍卖产品删除拍卖名修改为拍卖产品						完成
+
+输入文本想要带格式								完成	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
