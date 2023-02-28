@@ -1,0 +1,1000 @@
+/**
+ * 显示tryrun窗口
+ * @param  {[type]} url [description]
+ * @return {[type]}     [description]
+ */
+function showtry(url){
+	$("#tryframebox").show();
+	$("#tryframe").attr("src",url);
+}
+
+/**
+ * 隐藏tryrun窗口
+ * @return {[type]} [description]
+ */
+function hidetry(){
+	if(! $("#tryframebox").is(":hidden")){
+
+		 $("html").css("overflow-y","auto");
+		// $("#tryframebox").animate({"right":"-3000px"},function(){
+
+			$("#tryframebox").hide();
+		// });
+	}
+	
+}
+
+$('.closeifream').click( function (){
+	$(this).parents('#supplementbox').hide();
+})
+
+//打开补充内容
+function showSupplemen(){
+	$("#supplementbox").show();
+	$("#supplement").attr("src",'/my/project/supplement?pename='+kn.pename+'&kename='+kn.kename+'&kmid='+kn.kmid);
+}
+
+function HTMLEnCode(str){
+	var s = "";  
+	if(str.length == 0)    return "";  
+	s = str.replace(/&/g, "&amp;");  
+	s = s.replace(/</g, "&lt;");  
+	s = s.replace(/>/g, "&gt;");  
+	s = s.replace(/ /g, "&nbsp;");  
+	s = s.replace(/\'/g, "'");  
+	s = s.replace(/\"/g, "&quot;");  
+	s = s.replace(/\n/g, "<br>");  
+	return s;  
+}
+
+function HTMLDeCode(str){
+	var s = "";  
+	if(str.length == 0)    return  "";  
+	s = str.replace(/&amp;/g, "&");  
+	s = s.replace(/&lt;/g, "<");  
+	s = s.replace(/&gt;/g, ">");  
+	s = s.replace(/&nbsp;/g,  " ");  
+	s = s.replace(/'/g, "\'");  
+	s = s.replace(/&quot;/g, "\"");  
+	s = s.replace(/<br>/g, "\n");  
+	s = s.replace(/&#8211;/g, "-");  
+	return  s;  
+}
+
+/**
+ * 是否点赞
+ * @return {Boolean} [description]
+ */
+function isProjectLike(){
+
+	if(kn.uid == '' || kn.uid == '0'){
+		toastr.warning("您还未登录,请先登录!",'',{"positionClass": "toast-top-center"});
+		return;
+	}
+
+    $.ajaxdo({
+        url: "/project/islike/"+book.pename+".html",
+        type: "post",
+        dataType: 'json',
+        data: {},
+        sync: false,
+        success: function (data) {
+            if (data.statusCode == 200) {
+                $('.avatar-list').find('p').remove();
+                $('.avatar-list').append('<a href="/u/' + data.data + '" title="' + data.data + '"><img src="https://7n.w3cschool.cn/attachments/avatar2/avatar_' + data.data + '.jpg" title=""></a>');
+                var likecount = $("#likecount").text() * 1 + 1;
+                $("#likecount").html(likecount);
+                $(".btn-thumbs-up i").attr('class','icon-thumbs-up isdone');
+                $("#plikestatus").html('已赞');
+                toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+            } else {
+                toastr.warning(data.message,'',{"positionClass": "toast-top-center"});
+            }
+        }
+    });
+}
+
+/**
+ * 书签
+ * @return {Boolean} [description]
+ */
+function isProjectStar(){
+	if(kn.uid == '' || kn.uid == '0'){
+		toastr.warning("您还未登录,请先登录!",'',{"positionClass": "toast-top-center"});
+		return;
+	}
+	var type = $('#hbstar').attr('data-type');
+    $.ajaxdo({
+        url: "/project/star/"+book.pename+".html",
+        type: "post",
+        dataType: 'json',
+        data: {},
+        success: function (data) {
+            if(data.statusCode == 200){
+                if (type == 'star') {
+                    $('#hbstar, .hbstar').html('<i class="icon-star isdone"></i><span> 已收藏</span>');
+                    $('#hbstar, .hbstar').attr('data-type','rstar');
+                    toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+                } else {
+                    $('#hbstar ,.hbstar').html('<i class="icon-star-empty"></i><span> 收藏</span>');
+                    $('#hbstar').attr('data-type','star');
+                    toastr.success(data.message,'',{"positionClass": "toast-top-center"});
+                }
+            }else{
+                toastr.warning(data.message,'',{"positionClass": "toast-top-center"});
+            }
+        }
+    });
+}
+var svchandle = null;
+function setViewCredit(kename){
+
+	/*开启计时 准备记录积分*/
+    var vcreditfull = $.cookie('ypre_vcreditfull');
+    var uid = UserInfo.uid;
+    if(vcreditfull == undefined && uid != '0' && uid != ''){
+
+    	svchandle = setTimeout(function(){
+	    	$.ajaxdo({
+	    		url:"/project/setViewCredit",
+	    		type:"post",
+	    		data:{kename:kename},
+	    		dataType:"json",
+	    		success:function(msg){
+	    			var statusCode = {
+	    				'200':'success',
+	    				'400':'warning',
+	    			};
+	    			var toastrType = statusCode[msg.statusCode];
+	    			
+	    			if(msg.statusCode == 300 || msg.statusCode == 400){
+	    				return;
+	    			}
+
+	    			if(UserInfo['tipexp'] == 1){
+
+	    				toastr[toastrType](msg.message, '', {"onclick": function(){
+	    					if(confirm("确定取消经验值提醒？")){
+	    						$.ajaxdo({
+	    							url:"/user/setuserinfo?type=setting",
+						    		type:"post",
+						    		data:{tipexp:0},
+						    		dataType:"json",
+						    		success:function(msg){
+						    			if(msg.statusCode < 300){
+						    				toastr.success("阅读新增的经验值将不再提示！");
+						    			}else{
+						    				toastr.warning(msg.message);
+						    			}
+						    		}
+	    						});
+	    					}
+	    				}});
+	    			}
+	    			
+	    		}
+
+	    	});
+	    },30000);
+    }
+}
+
+/**
+ * 切换文章
+ * @return {[type]} [description]
+ */
+function swiftKn(){
+
+	// toastr.success("message", '',{"positionClass": "toast-top-center","closeButton": true, "onclick": function(){
+	// 	alert('hello');
+	// }});
+
+	var kename = $(this).attr("data-id");
+	if( kename =='relateinfos'){
+		return;
+	}
+	var pename = kn.pename;
+	var self = this;
+
+	hidetry();
+
+	var tarli = $("#nestable_handbook li.dd-item[data-id='"+kename+"']"); // 选中元素
+
+	if($(".project-cover").length > 0 && !$(".project-cover").is(":hidden")){
+		window.location = "/"+pename+"/"+kename+".html";
+		return;
+	}
+
+	if(tarli.attr("ktype") == 'klink'){
+		return;
+	}
+
+	//_hmt.push(['_trackPageview', "/"+pename+"/"+kename+".html?ajaxpage"]);
+
+	$.ajaxdo({
+        url:"/my/knowledge/getSimplekn",
+        type:"post",
+        dataType: 'json',
+        data:{
+            kename:kename,
+            pename:pename,
+        },
+        beforeSend:function() {
+            $("div.loading-css3").show();
+        },
+        complete:function(data) {
+            $("div.loading-css3").hide();
+        },
+        success:function(ainfo) {
+            $("#km-body").show();
+            $("#pcover").hide();
+
+
+            $(".content-top > h1").text(HTMLDeCode(ainfo.ktitle));
+            // $(".kn-infomation").html('由&nbsp;<span>'+ainfo['cnickname']+'</span>&nbsp;创建，'+ainfo['lnickname']+' 最后一次修改&nbsp;<span>'+ainfo['mdate']+'</span> ');
+            $(".view-box").html(ainfo['kcontent']);
+            $(".viewcount-btn > span").text("阅读("+ainfo['viewcount']+")");
+
+
+
+            if(ainfo.hasExam == 1){
+            	$("#kn-test").show();
+            }else{
+            	$("#kn-test").hide();
+            }
+
+             $(".view-box").find("pre").each(function(){ // 给代码块添加复制按钮
+             	var codenode = $(this).find("code");
+             	var lang = $(this).attr("lang");
+				var code = '';
+				
+				if(codenode.length == 0){
+					code = $(this).html();
+					$(this).wrapInner('<code class="text"></code>');
+				}else{
+					code = codenode.html();
+				}
+
+				$(this).data("code",HTMLDeCode(code));
+
+				if($.inArray(lang, Gvar.supportLangs) < 0){
+					$(this).prepend(kn.copybtn2);
+				}else{
+					$(this).prepend(kn.copybtn);
+				}
+
+			    
+             });
+
+            // 调整点赞状态
+            $("#likecount").text(ainfo['likecount']);
+            var islike = 0;
+            for(var p in ainfo.likelist){
+            	if(ainfo.likelist[p].uid == kn.uid){
+            		islike = 1;
+            		break;
+            	}
+            }
+            if(islike){
+            	$("#likestatus").text("已赞").prev().addClass("isdone");;
+            }else{
+            	$("#likestatus").text("赞").prev().removeClass("isdone");
+            }
+
+            var iscollect = 0;
+            // 查看是否已经添加书签
+            $("#kncollect .dd-item").each(function(){
+            	if($(this).attr("data-id") == kename){
+            		iscollect = 1;
+            		
+            	}
+            });
+
+            //console.log(iscollect);
+
+            if(iscollect){
+            	$("#knstar > i").removeClass("icon-bookmark-empty").addClass("isdone icon-bookmark");
+            	$('#knstar').attr('data-type','rstar');
+            	$("#knstar > span").text("书签");
+            }else{
+            	$("#knstar > i").removeClass("isdone icon-bookmark").addClass("icon-bookmark-empty");
+            	$('#knstar').attr('data-type','star');
+            	$("#knstar > span").text("书签");
+            }
+
+
+            $("#correct").attr("href","/edit/"+pename+"/"+kename);
+            //设置做题跟测试路径
+            $("#kn-test").attr("href","/exam/knowledgetest?pname="+pename+"&kname="+kename);
+            $("#kn-textureexam").attr("href","/minicourse/textureknowledge?pname="+pename+"&kname="+kename);
+
+            var pushStateUrl = '//'+window.location.host+'/'+pename+'/'+kename+'.html';
+            var referrer = window.location.href;
+
+            window.history.pushState({}, 0, pushStateUrl);
+
+
+            // logTjData({
+            // 	//'href': pushStateUrl,
+            // 	'title': ainfo.ktitle,
+            // 	'referrer': referrer,
+            // 	'pagetype': 'ajaxpage'
+            // });
+
+            localStorage.setItem("lastview_"+pename, pushStateUrl);
+
+            kn.kename = kename;
+            kn.ktitle = ainfo['ktitle'];
+            kn.ktype = ainfo['ktype'];
+            kn.original = ainfo['original'];
+            kn.codenote = '';
+            kn.kmid=ainfo['kmid'];
+            $(".toEditor").attr("href","/project/"+pename+"/"+kn.kename+".html");
+
+            if(typeof prettyPrint != "undefined" && kn.flags == 'md'){
+            	$(".view-box pre").addClass("prettyprint  linenums");
+			    // prettyPrint();
+			    $('pre code').each(function (i, block) {
+			        hljs.highlightBlock(block);
+			    });
+            }else{
+            	//console.log("高亮代码");
+            	$('pre code').each(function(i, block) {
+				   hljs.highlightBlock(block);
+				 });
+            	//hljs.initHighlightingOnLoad();//高亮代码
+            }
+          	//移除已评价星星
+          	$(".star_score span").removeClass("active");
+			  $(".star_score span").removeClass("select");
+			  $('#evaluatesContent').hide();
+			  $(".evaluateSelect").attr("checked", false);
+			  $('#otheradvise').val('');
+
+          	getNotelist();
+          	//共享笔记初始化
+          	$("#notelist_content").html('');
+          	$('.altblock').children('img').prop('src','/statics/images/+.png');
+            // mei 下一篇
+		    var el = $(".dd-item[data-id="+kename+"]");
+			var prevel;
+
+			var nextel;
+			var tlist = $("#nestable_handbook .dd-item[data-id]");
+
+			for(var i=0; i<tlist.length; i++){
+
+				if($(tlist[i]).attr("data-id") == kename){
+					if(i>0){
+						prevel = $(tlist[i-1]);
+					}else{
+						prevel = $();
+					}
+
+					if(i<tlist.length - 1){
+						nextel = $(tlist[i+1]);
+					}else{
+						nextel = $();
+					}
+					break;
+				}
+			}
+			
+			if(ainfo.script != ''){
+
+				$(".view-box").append(ainfo.script);
+			}
+
+			var winWidth = $(window).width();
+
+		    if(prevel.length < 1){
+		      $(".previous-link").hide();
+
+		      $(".navigation-prev").removeAttr("whide").hide();
+
+		    }else{
+
+
+		      var pretitle = prevel.find("> .dd-content a").text();
+		      $(".previous-link > a").attr("data-id",prevel.attr("data-id")).attr("title",pretitle).text(pretitle);
+
+		      $(".previous-link").show();
+
+		      $(".navigation-prev").attr("data-id",prevel.attr("data-id")).attr("title",pretitle);
+
+		      if(winWidth < 1200){
+		      	$(".navigation-prev").attr("whide", 1).hide();
+		      }else{
+		      	$(".navigation-prev").show();
+		      }
+		      
+
+		    }
+
+		    if(nextel.length < 1){
+		      $(".next-link").hide();
+		      $(".navigation-next").removeAttr("whide").hide();
+		    }else{
+		      var nexttitle = nextel.find(" > .dd-content a").text();
+		      $('.next-link > a').attr("data-id",nextel.attr("data-id")).attr("title",nexttitle).text(nexttitle);
+		      $(".next-link").show();
+
+		      $(".navigation-next").attr("data-id",nextel.attr("data-id")).attr("title",nexttitle);
+
+		      if(winWidth < 1200){
+		      	$(".navigation-next").attr("whide", 1).hide();
+		      }else{
+		      	$(".navigation-next").show();
+		      }
+		      
+
+		    }
+
+		    $("#nestable_handbook li.dd-item .dd-content").removeClass("active");
+		    if(tarli.attr("ismenu") == 0){
+		        tarli.addClass("readed");
+		    }
+		    tarli.find("> .dd-content").addClass("active");
+            //当文章为文件夹的时候 并且内容为空的时候显示文件夹内部文章列表
+			if(ainfo['kcontent'] == "" && ainfo['ismenu'] == 1){
+			    $(el).clone().appendTo(".view-box");
+			    $(".view-box").find(".dd-content").removeClass("folder-open").removeClass("folder-close").css({"background-color":"#fff"});
+			}
+
+			if($("#w3cDtitle").length > 0 && !$("#w3cDtitle").is(":hidden")){
+				if(typeof getncbytar != 'undefined'){
+					getncbytar(); //重新获取笔记
+				}
+			}
+			// //重新加载赞赏名单
+			// paypraise.pename   = kn.pename;
+			// paypraise.kename   = kn.kename;
+			// paypraise.original = kn.original;
+			// updateMember();
+			
+			clearTimeout(svchandle);
+			setViewCredit(kename);
+
+			$("#pro-mian pre[showdemo]").each(function(){
+				var lang = $(this).attr("lang");
+				if($.inArray(lang, Gvar.remoteLangs) > -1){
+					$(this).after(kn.tryhtml);
+				}else{
+					$(this).after(kn.tryhtml2);
+				}
+			});
+
+			$("#pro-mian pre > code.showdemo").each(function(){
+				var pobj = $(this).parent();
+				var lang = pobj.attr("lang");
+
+				if(!lang){
+					lang = $(this).attr("lang");
+					pobj.attr('lang', lang);
+				}
+
+				if($.inArray(lang, Gvar.remoteLangs) > -1){
+					pobj.after(kn.tryhtml);
+				}else{
+					pobj.after(kn.tryhtml2);
+				}
+				
+			});
+			$("#pro-mian").find("pre > code.fullcode").parent().hide();
+
+            $(document).scrollTop(0,0); // 页面回到顶部
+        }
+    });
+}
+
+$(function(){
+
+	 if(kn.kename != ''){
+	 	var lastviewUrl = '//'+window.location.host+'/'+kn.pename+'/'+kn.kename+'.html';
+     	localStorage.setItem("lastview_"+kn.pename, lastviewUrl);
+	 }
+
+	//主要修复定位不准确BUG
+	if (window.location.hash.indexOf('#') >= 0) {
+	    $('html,body').animate({
+	        scrollTop: ($(window.location.hash).offset().top - 100) + "px"
+	    },
+	    300);
+	};
+
+	$('#pro-mian a[href^=#][href!=#]').click(function() {
+	    var target = document.getElementById(this.hash.slice(1));
+	    if (!target) return;
+	    var targetOffset = $(target).offset().top - 100;
+	    $('html,body').animate({
+	        scrollTop: targetOffset
+	    },
+	    300);
+	    return false;
+	}); 
+	 
+
+	$(document).on("click",function(){
+		$(".docblur").hide();
+		hidetry();
+	});
+
+	if(Gvar.activityflag > 0){ // 开启了活动
+		$.ajax({
+    		url:"/getActivity",
+    		type:"get",
+    		dataType:"json",
+    		success:function(msg){
+
+    			function loadad(content){
+					var tpl = '<div class="activiey-area">'+
+							'<div class="activiey-bg"></div>'+
+							'<div class="activiey-main">'+
+								'<span class="close-btn"></span> <div style="max-height:500px;max-width:570px;">'+content+'</div></div>'+
+						'</div>';
+
+					$("body").append(tpl);
+
+					$(".activiey-main .close-btn").on("click",function(){
+						$(".activiey-area").hide();
+					});
+					
+				}
+
+    			if(msg.statusCode < 300){
+    				console.log(msg.data);
+    				// 写入cookie
+    				$.cookie("activity_showed", 1);
+    				loadad(msg.data.wincontent);
+    				toastr.success(msg.message);
+    			}else{
+    				toastr.warning(msg.message);
+    			}
+    		}
+
+    	});
+	}
+
+	$(".winshowtry").on("click",function(){
+
+		window.open(kn.tryurl);
+
+	});
+
+	$("#pro-mian").on("click", "[showtry]", function(e){
+		e.stopPropagation();
+		e.preventDefault();
+
+		var url = $(this).attr('href');
+		
+		kn.tryurl = url;
+
+		url += url.includes('?') ? '&stype=nohead' : '?stype=nohead';
+
+		showtry(url);
+
+	});
+
+	// $("#pro-mian").on("click","pre[showdemo]",function(e){
+	// 	e.stopPropagation();
+	// 	e.preventDefault();
+
+	// });
+
+	$("#pro-mian pre[showdemo]").each(function(){
+		var lang = $(this).attr("lang");
+		//console.log(lang, $.inArray(lang, Gvar.remoteLangs));
+		if($.inArray(lang, Gvar.remoteLangs) > -1){
+			$(this).after(kn.tryhtml);
+		}else{
+			$(this).after(kn.tryhtml2);
+		}
+	});
+
+	$("#pro-mian pre > code.showdemo").each(function(){
+		var pobj = $(this).parent();
+		var lang = pobj.attr("lang");
+		// console.log(lang)
+		if(!lang){
+			lang = $(this).attr("lang");
+			pobj.attr('lang', lang);
+		}
+		if($.inArray(lang, Gvar.remoteLangs) > -1){
+			pobj.after(kn.tryhtml);
+		}else{
+			pobj.after(kn.tryhtml2);
+		}
+	});
+	$("#pro-mian").find("pre > code.fullcode").parent().hide();
+
+	$("#pro-mian").on("click", ".code-try", function(e){
+		e.stopPropagation();
+		e.preventDefault();
+
+		var pre = $(this).parent();
+
+		var code = pre.data('code');
+
+		var lang = pre.attr("lang");
+
+		code = base64encode(utf16to8(code));
+		code = encodeURIComponent(code);
+
+		var url = '/tryrun/runcode?lang='+lang+'&code='+code;
+
+		kn.tryurl = url;
+
+		showtry(kn.tryurl+"&stype=nohead");
+	});
+
+	$("#pro-mian").on("click", ".dshowtry", function(e){
+	
+		e.stopPropagation();
+		e.preventDefault();
+
+		var pre = $(this).prev();
+		var mself = this;
+
+		var code = pre.data("code");
+		var elcode = pre.find("code");
+        var lang = pre.attr("lang");
+        if(!lang){
+            lang = elcode.attr("lang");
+        }
+
+        var num = elcode.attr("num");
+
+        if(num){
+        	let tarcode = $("code[num='"+num+"']").not("[class*='showdemo']");
+            code = tarcode.parents("pre").data('code');
+            lang = tarcode.attr("lang");
+            
+        }
+
+        if(lang == 'python'){
+        	lang = 'python2';
+        }
+
+        code = base64encode(utf16to8(code));
+        code = encodeURIComponent(code);
+
+        var url = '/tryrun/runcode?lang='+lang+'&code='+code;
+
+		showtry(url+"&stype=nohead");
+
+        return;
+
+
+
+		if($.inArray(lang, Gvar.remoteLangs) < 0){
+			code = base64encode(utf16to8(code));
+			code = encodeURIComponent(code);
+
+			var url = '/tryrun/runcode?lang='+lang+'&code='+code;
+
+			kn.tryurl = url;
+
+			showtry(kn.tryurl+"&stype=nohead");
+
+			return;
+
+		}
+	    
+		
+		var mode = lang;
+
+
+		var content = '', classname = '', stripcCode = '';
+
+		// if(mode == 'html' || mode == 'javascript'){
+		// 	if(mode == 'javascript'){
+		// 		code = "<script>"+code+"<\/script>";
+		// 	}
+
+		// 	code=code.replace(/=/gi,"youjequalsign");
+		// 	var pos=code.search(/script/i)
+		// 	while (pos>0) 
+		// 	{
+		// 	code=code.substring(0,pos) + "youj" + code.substr(pos,3) + "youj" + code.substr(pos+3,3) + "tag" + code.substr(pos+6);
+		// 	pos=code.search(/script/i);
+		// 	}
+
+		// 	document.getElementById("codecontent").value=code;
+
+		// 	document.getElementById("tryitform").action="/tryrun/showresult/showhtml.html?x=" + Math.random();
+		// 	document.getElementById("tryitform").submit();
+
+		// 	return;
+		// }
+
+		//$("#demotype").html("<img src='/statics/img/loading1.gif' />");
+
+		if(code != ""){
+
+		content = code;
+		var run_url = "https://run.w3cschool.cn/runcode";
+		if(mode == 'java'){
+
+		  stripcCode = stripComments(content);
+		  classinfo = stripcCode.match(/public\s{1,}class([^{]+){/);
+		  if(classinfo === null){
+		    $("#demotype").html("<span style='color:red'>error:请确保有一个类是public</span>");
+		    return;
+		  }
+		  if(typeof classinfo[1] !== 'undefined'){
+
+		    classname = $.trim(classinfo[1]);
+		  }
+
+		  run_url = "https://run.w3cschool.cn/runcode";
+		}
+
+
+		$.ajax({
+		  url:run_url,
+		  type:"post",
+		  data:{ lang:mode, code:content, classname:classname },
+		  dataType:"html",
+		  success:function(msg){
+
+		  	console.log(msg);
+		    
+		    if(mode == 'php'){
+		      $(mself).next(".coderes").addClass("on").html(msg);
+		    }else{
+		      
+		      $(mself).next(".coderes").addClass("on").html("<pre>"+HTMLEnCode(msg)+"</pre>");
+		    }
+		  }
+		});
+
+
+		}
+
+
+
+
+
+	});
+
+	$(".onlinenote").show();
+
+	$(document).on('keyup',function(e){
+    	var keyCode = e.keyCode;
+    	var prev,next;
+    	if(keyCode == 37){ // 上一篇
+    		if($("#w3cDtitle").is(":hidden")){
+	    		prev = $(".navigation-prev");
+	    		if(prev.length > 0 && !prev.is(":hidden")){
+	    			prev.trigger("click");
+	    		}
+    		}
+    		
+    	}
+    	if(keyCode == 39){ // 下一篇
+    		if($("#w3cDtitle").is(":hidden")){
+    		next = $(".navigation-next");
+    		if(next.length > 0 && !next.is(":hidden")){
+    			next.trigger("click");
+    		}
+    		}
+    	}
+    });
+
+	if(location.hash !== ""){ // 修复锚点定位失效的问题
+		
+		setTimeout(function(){
+			location.href=location.hash;
+		},300);
+		
+	}
+
+	$(".previous-link,.next-link").on("click",function(e){
+		e.stopPropagation();
+		var obj = $(this).find(">a");
+		swiftKn.call(obj[0]);
+
+	});
+
+	$(".navigation-box > a").on("click",function(e){
+		e.stopPropagation();
+		swiftKn.call(this);
+	});
+
+	/**
+	 * 切换文章
+	 */
+	$("#nestable_handbook li.dd-item > .dd-content a").on("click",function(e){
+		e.stopPropagation();
+		//没有阅读权限的文章,不跳转
+		if($(this).hasClass("forbidread")){
+			return;
+		}
+		var tarli = $(this).parent().parent();
+		swiftKn.call(tarli[0]);
+
+	});
+
+	$(".view-box").on("click","li.dd-item",function(e){
+		e.stopPropagation();
+		swiftKn.call(this);
+	});
+	// 书签夹
+	$("#kncollect").on("click",".dd-item",function(e){
+		e.stopPropagation();
+		swiftKn.call(this);
+	});
+
+
+	// 给代码块添加复制按钮
+	$(".view-box").find("pre").each(function(){ 
+		var codenode = $(this).find("code");
+		var code = '';
+		var lang = $(this).attr("lang");
+		if(codenode.length == 0){
+			code = $(this).html();
+			$(this).wrapInner('<code class="text"></code>');
+		}else{
+			code = codenode.html();
+		}
+		//console.log(HTMLDeCode(code));
+		
+		$(this).data("code",HTMLDeCode(code));
+
+		if($.inArray(lang, Gvar.supportLangs) < 0){
+			$(this).prepend(kn.copybtn2);
+		}else{
+			$(this).prepend(kn.copybtn);
+		}
+
+    });
+
+	/***** 复制按钮 开始*******/
+    var clipboardSnippets = new Clipboard('.code-copy',{
+    	'text': function(trigger){
+    		var code = $(trigger).parents("pre").data("code");
+    		return code;
+    	}
+	    // target: function(trigger) {
+	    //     return trigger.nextElementSibling.nextElementSibling;
+	    // },
+	});
+	clipboardSnippets.on('success', function(e) {
+	    e.clearSelection();
+	    toastr.success("复制成功");
+	});
+	clipboardSnippets.on('error', function(e) {
+		toastr.warning("复制失败");
+
+	});
+	/***** 复制按钮 结束*******/
+
+	$(".view-box").on("click",".code-note",function(){
+		//$(".onlinenote").trigger('click');
+		kn.codenote = $(this).parent().data("code");
+		//console.log(kn.codenote);
+	});
+
+	//显示笔记模态框
+	function showCodeEditor(){
+		
+		if(typeof editormd == 'undefined'){
+			var link1=document.createElement("link");  
+			link1.type="text/css";
+			link1.rel="stylesheet"; 
+			link1.href="/plugins/markdown/editormd.css";  
+			document.getElementsByTagName('head')[0].appendChild(link1);
+
+			$.getScript('/statics/js/w3cdialog.js',function(){
+				loadmdjs();
+			});
+			
+		}else{
+
+
+			
+			// if($("#w3cDtitle").is(":hidden")){
+			// 	$("#fbw3cDtitle").show();
+			// 	$("#w3cDtitle").show();
+			// 	getncbytar(); //重新获取笔记
+			// }else{
+			// 	$("#fbw3cDtitle").hide();
+		 //        $("#w3cDtitle").hide();
+			// }
+			
+		}
+		 
+	}
+
+	var kename = kn.kename;
+    var fid    = kn.fid;
+    var uid = kn.uid;
+	
+	setViewCredit(kename);
+    
+	if(kn.flags == 'md'){
+		$("pre").addClass("prettyprint  linenums");
+	    // prettyPrint();
+
+	    $('pre code').each(function (i, block) {
+	        hljs.highlightBlock(block);
+	    });
+	}else{
+		//console.log("初次代码高亮");
+		//hljs.initHighlightingOnLoad();//高亮代码
+		$('pre code').each(function(i, block) {
+		  hljs.highlightBlock(block);
+		});
+	}
+
+    
+    if(kn.uid != '' && kn.uid != '0'){
+    	getviewkn();
+    }
+   
+    window._bd_share_config={"common":{"bdSnsKey":{},bdPopupOffsetTop:"5"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://7n.w3cschool.cn/plugins/baidushare/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+});
+
+
+$(".toggle-dropdown").on('click',function(e){
+	e.stopPropagation();
+	if ($(this).next().is(":hidden")){
+        $(this).next().show();    
+	}else{
+	    $(this).next().hide();     
+	}
+});
+
+$('.toggle-dropdown-size').on('click', function (e) {
+	e.stopPropagation();
+	toggleSetMenu('.set-size');
+})
+
+$('.toggle-dropdown-background').on('click', function (e) {
+	e.stopPropagation();
+	toggleSetMenu('.set-background');
+})
+
+function toggleSetMenu(selectElement) {
+	if (selectElement == '.set-background') {
+		if ($('.toggle-dropdown-background').find('.w3c-icon').hasClass('w3c-icon-day')) {
+			$('.toggle-dropdown-background').find('.w3c-icon').addClass('w3c-icon-night').removeClass('w3c-icon-day');
+			$('.background-day').click();
+			$('.toggle-dropdown-background').attr('title', '夜间模式');
+		} else {
+			$('.toggle-dropdown-background').find('.w3c-icon').addClass('w3c-icon-day').removeClass('w3c-icon-night');
+			$('.background-night').click();
+			$('.toggle-dropdown-background').attr('title', '日间模式');
+		}
+	} else {
+		if ($(selectElement).is(":hidden")) {
+			$(selectElement).show().siblings('.docblur').hide();
+		} else {
+			$(selectElement).hide();
+		}
+	}
+};
+
+$(".set-dropdown-menu").on("click",function(e){
+	e.stopPropagation();
+});
+
+
+function getviewkn(){
+    var usernamestr ='';
+    $.ajax({
+        url:"/my/knowledge/getViewkn?pename="+book.pename,
+        dataType:"json",
+        success:function(msg){
+            var objli,objtt;
+            for(var p in msg){
+            	objli = $("#nestable_handbook").find(".dd-item[data-id='"+msg[p]['kename']+"']");
+            	if(objli.attr("ismenu") != 1){	
+                	objli.addClass("readed").find("a").attr("title","上次浏览时间:("+msg[p]['lasttime']+")");
+            	}
+                
+            }
+            
+        }
+    }); 
+}
