@@ -1,0 +1,13 @@
+ZJ1350464248
+
+测试发货
+
+
+2018-06-26 16:10:39.000
+
+
+2022-11-10 11:02:24.233
+
+ALTER TABLE [dbo].[ecOrderExpress] ADD SendType nvarchar(50) NULL ;
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'发货方式' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ecOrderExpress', @level2type=N'COLUMN',@level2name=N'SendType'
+GO
