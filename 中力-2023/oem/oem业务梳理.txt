@@ -1,0 +1,89 @@
+已交清单   ：
+	1.需用分组吧？
+	2.按合同和按明细只是返回字段不一样的区别吗？
+	（如果是，可以直接返回所有的，然后再前端处理字段的多少吗？还是在后端就把字段规定好？）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OA  Office Auto  办公自动化
+erp  Enterprise resource Plaing 进销存
+oem original eqip
+crm Customer relation manage 客户关系管理
+mis  management infomation system 信息管理系统
+
+
+
+中台管理员站点OEM添加功能:
+(1)用户模块
+(2)分组模块
+
+客户查询网站:
+所需提供接口主要涉及：
+(1)订单状态查询明细（Detial Report）
+(2)订单状态查询汇总（Summary Report）
+(3)订单交货明细（UN-Delivery）
+(4)出货计划（Ship＆Plan）
+
+工厂查询网站:
+所需提供接口主要涉及：
+(1)未交图表
+(2)未交清单
+(3)已交清单
+(4)检验结果
+
+
+
+
+
+
+	组
+
+	用户   是否是业务员（isy）
+
+	     用户和组
+id	yid 		zid
+	y1		z1
+	y1		z2
+	y2		z1
+
+
+
+当前用户--是业务员--业务员组--组内用户   （组、用户）
+
+当前用户--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
