@@ -112,11 +112,15 @@ $(function () {
 				}
             });
         });
-      var distinct = $.unique(arr.sort());
-      if(distinct.length>1||distinct[0]==-1)
-      {
+      var type = $("#promotionType").val();
+      if(type=="4"){
+        var distinct = $.unique(arr.sort());
+        if(distinct.length>1||distinct[0]==-1)
+        {
           $.alert("商品购买数量的倍数不一致!");      
+        }
       }
+      
 		return flag;
 		}
 	});
